@@ -39,6 +39,8 @@ public class Main {
 
 
             while (true) {  // while 2 start
+                int myPokemonHp = ourPokemon.yourChoose.get(0).HP;
+                int myPokemonAP = ourPokemon.yourChoose.get(0).AP;
                 printLine();
                 roundCounter(roundCounter);
                 printLine();
