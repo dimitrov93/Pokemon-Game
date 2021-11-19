@@ -1,7 +1,8 @@
 package com.company;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Main {
@@ -11,13 +12,22 @@ public class Main {
         MyPokemon ourPokemon = new MyPokemon();
         EnemyPokemon enemyPokemon = new EnemyPokemon();
 
+        printPokemonChars();
+        menuOption();
+        switchMenuOptions(ourPokemon,enemyPokemon);
+
+    }
+
+    private static void printPokemonChars() {
         try {
             printPokemonText();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
 
+    private static void playTheGame(MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
         trainerName();
         System.out.println(trainerName + " - Welcome to the tournament!");
 
@@ -89,12 +99,68 @@ public class Main {
         whoWins(ourPokemon);
     }
 
+    public static void menuOption() {
+        System.out.println("1. Play a game!");
+        System.out.println("2. Check logs");
+        System.out.println("3. Exit");
+        System.out.print("Please, select an option from the menu: " + "\n");
+    }
+
+    public static void switchMenuOptions (MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
+        Scanner scanner = new Scanner(System.in);
+        byte userOption = scanner.nextByte();
+        switch (userOption) {
+           case 1 -> playTheGame(ourPokemon, enemyPokemon);
+           case 2 -> winnerReader(ourPokemon, enemyPokemon);
+            default -> System.out.println("Have a great day!");
+        }
+    }
+
     private static void whoWins(MyPokemon ourPokemon) {
+        String winner;
         if (ourPokemon.myPokemon.size() <= 0) {
             System.out.println("The enemy wins!");
+            winner = "The enemy";
         } else {
             System.out.println(trainerName + " you win!");
+            winner = trainerName;
         }
+
+        winnerWritter(winner);
+    }
+
+    private static void winnerWritter(String winner) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        File date = new File("winner.txt");
+        try {
+            FileWriter fw = new FileWriter(date.getAbsoluteFile(), true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(dtf.format(now) + " --- The winner is: " + winner + "\n");
+            bw.close();
+            fw.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("error");
+            e.printStackTrace();
+        }
+    }
+
+    private static void winnerReader(MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
+        try {
+            File winner = new File("winner.txt");
+            Scanner myReader = new Scanner(winner);
+            while (myReader.hasNextLine()) {
+                System.out.println(myReader.nextLine());
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Error in reading");
+            e.printStackTrace();
+        }
+
+        menuOption();
+        switchMenuOptions(ourPokemon,enemyPokemon);
     }
 
     private static void roundCounter(int roundCounter) {
