@@ -7,6 +7,7 @@ import java.util.*;
 
 public class Main {
     static String trainerName;
+    static int crystals;
 
     public static void main(String[] args) {
         MyPokemon ourPokemon = new MyPokemon();
@@ -28,6 +29,7 @@ public class Main {
     }
 
     private static void playTheGame(MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
+        Scanner scanner = new Scanner(System.in);
         trainerName();
         System.out.println(trainerName + " - Welcome to the tournament!");
 
@@ -44,13 +46,11 @@ public class Main {
         ourPokemon.youChooseOnePokemon();
         System.out.print("Enemy player choose: ");
         enemyPokemon.enemyChoosePokemon();
-
+        crystals = 0;
         loop: while(enemyPokemon.enemyPokemonList.size()!=0 || ourPokemon.myPokemon.size()!=0 || roundCounter <= 5){
 
 
             while (true) {  // while 2 start
-                int myPokemonHp = ourPokemon.yourChoose.get(0).HP;
-                int myPokemonAP = ourPokemon.yourChoose.get(0).AP;
                 printLine();
                 roundCounter(roundCounter);
                 printLine();
@@ -60,11 +60,19 @@ public class Main {
                     System.out.println("Your pokemon HP now is: " + (ourPokemon.yourChoose.get(0).HP - enemyPokemon.enemyChoose.get(0).AP) );
                     ourPokemon.yourChoose.get(0).HP -= enemyPokemon.enemyChoose.get(0).AP;
                 } else {
-                    System.out.println(trainerName + " - your turn! Choose attack to hit with: 1,2,3");
-                    System.out.println("Enemy pokemon HP is: " + enemyPokemon.enemyChoose.get(0).HP);
-                    System.out.println(ourPokemon.yourChoose.get(0).name + " is attacking with: " +  ourPokemon.yourChoose.get(0).AP + " Attack power");
-                    System.out.println("Enemy pokemon HP now is: " + (enemyPokemon.enemyChoose.get(0).HP - ourPokemon.yourChoose.get(0).AP) );
-                    enemyPokemon.enemyChoose.get(0).HP -= ourPokemon.yourChoose.get(0).AP;
+                    System.out.println(trainerName + " - your turn! Please, select an ability to strike with: ");
+                    System.out.println("1.Low ability 2.Medium ability 3.High ability 4.No ability");
+                    int ability = scanner.nextInt();
+                    if (ability == 1) {
+                        lowAbilityUsed(ourPokemon, enemyPokemon);
+                    } else if (ability == 2) {
+                        mediumAbilityUsed(ourPokemon, enemyPokemon);
+                    } else if (ability == 3) {
+                        highAbilityUsed(ourPokemon, enemyPokemon);
+                    } else {
+                        noAbilityUsed(ourPokemon, enemyPokemon);
+                    }
+
                 }
 
                 if (ourPokemon.yourChoose.get(0).HP < 0 ) {
@@ -80,6 +88,7 @@ public class Main {
 
                 } else if (enemyPokemon.enemyChoose.get(0).HP < 0) {
                     System.out.println(enemyPokemon.enemyChoose.get(0).name + " is dead");
+                    crystals += randomCrystalGenerator() ;
                     if (enemyPokemon.enemyPokemonList.size() <= 0)  {
                         System.out.println("All enemy pokemons are dead.");
                         break loop;
@@ -93,10 +102,39 @@ public class Main {
                 }
                 roundCounter++;
             } // while 2 end
+            System.out.println("Crystals amount: " + crystals);
         } // while 1 end
 
         printLine();
         whoWins(ourPokemon);
+    }
+
+    private static void noAbilityUsed(MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
+        System.out.println("Enemy pokemon HP is: " + enemyPokemon.enemyChoose.get(0).HP);
+        System.out.println(ourPokemon.yourChoose.get(0).name + " is attacking with: " +  ourPokemon.yourChoose.get(0).AP + " Attack power");
+        System.out.println("Enemy pokemon HP now is: " + (enemyPokemon.enemyChoose.get(0).HP - ourPokemon.yourChoose.get(0).AP) );
+        enemyPokemon.enemyChoose.get(0).HP -= ourPokemon.yourChoose.get(0).AP;
+    }
+
+    private static void highAbilityUsed(MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
+        System.out.println("Enemy pokemon HP is: " + enemyPokemon.enemyChoose.get(0).HP);
+        System.out.println(ourPokemon.yourChoose.get(0).name + " is attacking with: " +  ourPokemon.highAbility() + " Attack power");
+        System.out.println("Enemy pokemon HP now is: " + (enemyPokemon.enemyChoose.get(0).HP - ourPokemon.highAbility()) );
+        enemyPokemon.enemyChoose.get(0).HP -= ourPokemon.highAbility();
+    }
+
+    private static void mediumAbilityUsed(MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
+        System.out.println("Enemy pokemon HP is: " + enemyPokemon.enemyChoose.get(0).HP);
+        System.out.println(ourPokemon.yourChoose.get(0).name + " is attacking with: " +  ourPokemon.mediumAbility() + " Attack power");
+        System.out.println("Enemy pokemon HP now is: " + (enemyPokemon.enemyChoose.get(0).HP - ourPokemon.mediumAbility()) );
+        enemyPokemon.enemyChoose.get(0).HP -= ourPokemon.mediumAbility();
+    }
+
+    private static void lowAbilityUsed(MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
+        System.out.println("Enemy pokemon HP is: " + enemyPokemon.enemyChoose.get(0).HP);
+        System.out.println(ourPokemon.yourChoose.get(0).name + " is attacking with: " +  ourPokemon.lowAbility() + " Attack power");
+        System.out.println("Enemy pokemon HP now is: " + (enemyPokemon.enemyChoose.get(0).HP - ourPokemon.lowAbility()) );
+        enemyPokemon.enemyChoose.get(0).HP -= ourPokemon.lowAbility();
     }
 
     public static void menuOption() {
@@ -193,5 +231,11 @@ public class Main {
 
     public static void printLine() {
         System.out.println();
+    }
+
+    public static int randomCrystalGenerator() {
+        Random rand = new Random();
+        int randomCrystal = rand.nextInt(20)+1;
+        return randomCrystal;
     }
 }

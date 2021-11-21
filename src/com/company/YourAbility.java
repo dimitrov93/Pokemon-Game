@@ -1,8 +1,8 @@
 package com.company;
 
 public interface YourAbility {
-    public void youAttackingPcWithLowAbility();
-    public void youAttackingPcWithMediumAbility();
-    public void youAttackingPcWithHighAbility();
+    public int lowAbility();
+    public int mediumAbility();
+    public int highAbility();
     public void youUseShield();
 }
