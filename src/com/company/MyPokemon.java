@@ -68,25 +68,18 @@ public class MyPokemon extends Pokemon  implements YourAbility {
     }
 
     @Override
-    public void youAttackingPcWithLowAbility() {
-
-        //      enemyChoose.get(0).HP -= yourChoose.get(0).AP;
-        //        System.out.println("The enemy HP is: " + enemyChoose.get(0).HP);
-        System.out.println("You attacking enemy pokemon with medium ability! His health is ");
-        System.out.println(yourChoose.size());
-        System.out.println(super.enemyChoose.size());
-        System.out.println();
-
+    public int lowAbility() {
+        return (int) (yourChoose.get(0).AP + (yourChoose.get(0).AP * 0.2));
     }
 
     @Override
-    public void youAttackingPcWithMediumAbility() {
-        System.out.println("You attacking enemy pokemon with medium ability! His health is ");
+    public int mediumAbility() {
+        return (int) (yourChoose.get(0).AP + (yourChoose.get(0).AP * 0.3));
     }
 
     @Override
-    public void youAttackingPcWithHighAbility() {
-        System.out.println("You attacking enemy pokemon with high ability! His health is ");
+    public int highAbility() {
+        return (int) (yourChoose.get(0).AP + (yourChoose.get(0).AP * 0.4));
     }
 
     @Override

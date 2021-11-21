@@ -36,4 +36,8 @@ public class Pokemon {
        return result.toString();
     }
 
+
+    public int lowAbility() {
+        return this.AP = (int) (this.AP + (this.AP * 0.2));
+    }
 }
