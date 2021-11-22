@@ -16,6 +16,7 @@ public class EnemyPokemon extends Pokemon implements EnemyAbility {
         typeCheckForSmallAndBig();
     }
 
+
     private void typeCheckForSmallAndBig() {
         for(int i=0;i<5;i++){
             if(pokemon[i].size.equals("Small")){

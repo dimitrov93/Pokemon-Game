@@ -76,11 +76,17 @@ public class Main {
                 }
 
                 if (ourPokemon.yourChoose.get(0).HP < 0 ) {
+                    ourPokemon.removedPokemon.add(ourPokemon.yourChoose.get(0));
                     ourPokemon.myPokemon.remove(ourPokemon.yourChoose.get(0));
                     System.out.println(ourPokemon.yourChoose.get(0).name + " is dead");
                     if (ourPokemon.myPokemon.size() <= 0) {
                         break loop;
                     } else {
+                        if (crystals > 10) {
+                            System.out.println("Do you want to ressurect a pokemon? ");
+                            ourPokemon.returnPokemon();
+
+                        }
                         ourPokemon.youChooseOnePokemon();
                         roundCounter++;
                         break;
