@@ -11,10 +11,12 @@ public class Pokemon {
     public int DP; // defense
     public ArrayList<Pokemon> yourChoose = new ArrayList<>();
     public ArrayList<Pokemon> enemyChoose = new ArrayList<>();
+    public ArrayList<Pokemon> removedPokemon = new ArrayList<>();
 
 
 
-    public Pokemon(String name,String type,String size,int HP, int AP,int DP){
+
+    public Pokemon(String name, String type, String size, int HP, int AP, int DP){
         this.name=name;
         this.type=type;
         this.size=size;
@@ -37,7 +39,5 @@ public class Pokemon {
     }
 
 
-    public int lowAbility() {
-        return this.AP = (int) (this.AP + (this.AP * 0.2));
-    }
+
 }

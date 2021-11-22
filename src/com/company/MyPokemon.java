@@ -7,6 +7,7 @@ public class MyPokemon extends Pokemon  implements YourAbility {
     ArrayList<Pokemon>myPokemon=new ArrayList<>();
     Scanner scanner=new Scanner(System.in);
 
+
     public MyPokemon(){
         this.pokemon=new Pokemon[5];
         pokemon[0]=new Pokemon("Pikachu","Electric","Medium",35,55,40);
@@ -27,6 +28,7 @@ public class MyPokemon extends Pokemon  implements YourAbility {
             }
         }
     }
+
 
     public ArrayList<Pokemon> choosePokemonInBattle(){
         Scanner scanner=new Scanner(System.in);
@@ -65,6 +67,15 @@ public class MyPokemon extends Pokemon  implements YourAbility {
                 System.out.println("Your Pokemon is: "+yourChoose.get(0).name);
                 break;
         }
+    }
+
+    public void returnPokemon() {
+        for (int i = 0; i < removedPokemon.size(); i++) {
+            System.out.println((i + 1) + ":" + removedPokemon.get(i));
+        }
+
+        int choice = scanner.nextInt();
+        myPokemon.add(myPokemon.size()-1,removedPokemon.get(choice-1));
     }
 
     @Override
