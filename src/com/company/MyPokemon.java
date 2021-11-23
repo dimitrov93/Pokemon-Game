@@ -76,6 +76,7 @@ public class MyPokemon extends Pokemon  implements YourAbility {
 
         int choice = scanner.nextInt();
         myPokemon.add(myPokemon.size()-1,removedPokemon.get(choice-1));
+        removedPokemon.remove(removedPokemon.get(choice-1));
     }
 
     @Override

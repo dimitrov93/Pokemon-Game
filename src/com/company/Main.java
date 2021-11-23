@@ -48,9 +48,9 @@ public class Main {
         enemyPokemon.enemyChoosePokemon();
         crystals = 0;
         loop: while(enemyPokemon.enemyPokemonList.size()!=0 || ourPokemon.myPokemon.size()!=0 || roundCounter <= 5){
+             int healthBar = ourPokemon.yourChoose.get(0).HP;
 
-
-            while (true) {  // while 2 start
+             while (true) {  // while 2 start
                 printLine();
                 roundCounter(roundCounter);
                 printLine();
@@ -76,6 +76,7 @@ public class Main {
                 }
 
                 if (ourPokemon.yourChoose.get(0).HP < 0 ) {
+                    ourPokemon.yourChoose.get(0).HP = healthBar;
                     ourPokemon.removedPokemon.add(ourPokemon.yourChoose.get(0));
                     ourPokemon.myPokemon.remove(ourPokemon.yourChoose.get(0));
                     System.out.println(ourPokemon.yourChoose.get(0).name + " is dead");
@@ -83,9 +84,9 @@ public class Main {
                         break loop;
                     } else {
                         if (crystals > 10) {
-                            System.out.println("Do you want to ressurect a pokemon? ");
+                            System.out.println("Do you want to resurrect a pokemon? ");
                             ourPokemon.returnPokemon();
-
+                            crystals = 0;
                         }
                         ourPokemon.youChooseOnePokemon();
                         roundCounter++;
@@ -102,7 +103,8 @@ public class Main {
                         System.out.print("Enemy player choose: ");
                         enemyPokemon.enemyChoosePokemon();
                         roundCounter++;
-                        break;
+                        System.out.println("Crystals amount: " + crystals);
+                        continue;
                     }
 
                 }
