@@ -2,7 +2,8 @@ package com.company;
 
 import java.util.*;
 
-public class MyPokemon extends Pokemon  implements YourAbility {
+//public class MyPokemon extends Pokemon  implements YourAbility {
+public class MyPokemon extends Pokemon  {
     Pokemon[]pokemon;
     ArrayList<Pokemon>myPokemon=new ArrayList<>();
     Scanner scanner=new Scanner(System.in);
@@ -47,7 +48,7 @@ public class MyPokemon extends Pokemon  implements YourAbility {
         }
     }
 
-    public void youChooseOnePokemon(){
+    public ArrayList<Pokemon> youChooseOnePokemon(){
         for (int i = 0; i < myPokemon.size(); i++) {
             System.out.println((i + 1) + ":" + myPokemon.get(i).name);
         }
@@ -67,6 +68,7 @@ public class MyPokemon extends Pokemon  implements YourAbility {
                 System.out.println("Your Pokemon is: "+yourChoose.get(0).name);
                 break;
         }
+        return yourChoose;
     }
 
     public void returnPokemon() {
@@ -79,23 +81,23 @@ public class MyPokemon extends Pokemon  implements YourAbility {
         removedPokemon.remove(removedPokemon.get(choice-1));
     }
 
-    @Override
-    public int lowAbility() {
-        return (int) (yourChoose.get(0).AP + (yourChoose.get(0).AP * 0.2));
-    }
-
-    @Override
-    public int mediumAbility() {
-        return (int) (yourChoose.get(0).AP + (yourChoose.get(0).AP * 0.3));
-    }
-
-    @Override
-    public int highAbility() {
-        return (int) (yourChoose.get(0).AP + (yourChoose.get(0).AP * 0.4));
-    }
-
-    @Override
-    public void youUseShield() {
-
-    }
+//    @Override
+//    public int lowAbility() {
+//        return (int) (yourChoose.get(0).AP + (yourChoose.get(0).AP * 0.2));
+//    }
+//
+//    @Override
+//    public int mediumAbility() {
+//        return (int) (yourChoose.get(0).AP + (yourChoose.get(0).AP * 0.3));
+//    }
+//
+//    @Override
+//    public int highAbility() {
+//        return (int) (yourChoose.get(0).AP + (yourChoose.get(0).AP * 0.4));
+//    }
+//
+//    @Override
+//    public void youUseShield() {
+//
+//    }
 }
