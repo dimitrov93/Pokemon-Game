@@ -8,14 +8,22 @@ import java.util.*;
 public class Main {
     static String trainerName;
     static int crystals;
-
+    static ArrayList<Pokemon>yourChoose=new ArrayList<>();
+    static ArrayList<Pokemon>enemyChoose=new ArrayList<>();
     public static void main(String[] args) {
+
+
         MyPokemon ourPokemon = new MyPokemon();
         EnemyPokemon enemyPokemon = new EnemyPokemon();
 
+        YourAttacks yourAttacks=new YourAttacks();
+        EnemyAttacks enemyAttacks=new EnemyAttacks();
+
+
         printPokemonChars();
         menuOption();
-        switchMenuOptions(ourPokemon,enemyPokemon);
+        switchMenuOptions(ourPokemon,enemyPokemon,yourAttacks,enemyAttacks);
+
 
     }
 
@@ -28,7 +36,7 @@ public class Main {
         }
     }
 
-    private static void playTheGame(MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
+    private static void playTheGame(MyPokemon ourPokemon, EnemyPokemon enemyPokemon,YourAttacks yourAttacks,EnemyAttacks enemyAttacks) {
         Scanner scanner = new Scanner(System.in);
         trainerName();
         System.out.println(trainerName + " - Welcome to the tournament!");
@@ -37,15 +45,15 @@ public class Main {
         ourPokemon.choosePokemonInBattle();
         ourPokemon.printMyPokemons();
 
-        enemyPokemon.randomEnemyPokemonInBattle();
+         enemyPokemon.randomEnemyPokemonInBattle();
         enemyPokemon.printEnemyPokemon();
         printLine();
         int roundCounter = 1;
         System.out.println("The battle begins");
         System.out.println("Choose pokemon to play with: ");
-        ourPokemon.youChooseOnePokemon();
+        yourChoose= ourPokemon.youChooseOnePokemon();
         System.out.print("Enemy player choose: ");
-        enemyPokemon.enemyChoosePokemon();
+        enemyChoose= enemyPokemon.enemyChoosePokemon();
         crystals = 0;
         loop: while(enemyPokemon.enemyPokemonList.size()!=0 || ourPokemon.myPokemon.size()!=0 || roundCounter <= 5){
              int healthBar = ourPokemon.yourChoose.get(0).HP;
@@ -55,59 +63,76 @@ public class Main {
                 roundCounter(roundCounter);
                 printLine();
                 if (roundCounter % 2 != 0) {
-                    System.out.println("Your pokemon HP is: " + ourPokemon.yourChoose.get(0).HP);
-                    System.out.println(enemyPokemon.enemyChoose.get(0).name + " is attacking with: " +  enemyPokemon.enemyChoose.get(0).AP + " Attack power");
-                    System.out.println("Your pokemon HP now is: " + (ourPokemon.yourChoose.get(0).HP - enemyPokemon.enemyChoose.get(0).AP) );
-                    ourPokemon.yourChoose.get(0).HP -= enemyPokemon.enemyChoose.get(0).AP;
+                    enemyAttacks.AbilityChoice(yourChoose,enemyChoose);
+                    if (yourChoose.get(0).HP <= 0 ) {
+                        System.out.println(ourPokemon.yourChoose.get(0).name + " is dead");
+                        yourChoose.get(0).HP = healthBar;
+                        ourPokemon.removedPokemon.add(yourChoose.get(0));
+                        ourPokemon.myPokemon.remove(yourChoose.get(0));
+                        yourChoose.remove(0);
+
+                        if (ourPokemon.myPokemon.size() <= 0&&crystals<10) {
+                            break loop;
+                        } else if (ourPokemon.myPokemon.size() <= 0&&crystals > 10) {
+                                System.out.println("Do you want to resurrect a pokemon? ");
+                                System.out.println("1-Yes");
+                                System.out.println("2-No");
+                                int n=scanner.nextInt();
+                                switch(n){
+                                    case 1:
+                                        yourChoose=ourPokemon.youChooseOnePokemon();
+                                        crystals = 0;
+                                        break;
+                                    case 2:
+                                        System.out.println("Have a great day!");
+                                        break loop;
+
+
+                                }
+                            }
+//                                ourPokemon.returnPokemon();
+//                                crystals = 0;
+                        else{
+                            yourChoose=ourPokemon.youChooseOnePokemon();
+                            roundCounter++;
+                            break;
+                          }
+
+                    }
+
                 } else {
-                    System.out.println(trainerName + " - your turn! Please, select an ability to strike with: ");
-                    System.out.println("1.Low ability 2.Medium ability 3.High ability 4.No ability");
-                    int ability = scanner.nextInt();
-                    if (ability == 1) {
-                        lowAbilityUsed(ourPokemon, enemyPokemon);
-                    } else if (ability == 2) {
-                        mediumAbilityUsed(ourPokemon, enemyPokemon);
-                    } else if (ability == 3) {
-                        highAbilityUsed(ourPokemon, enemyPokemon);
-                    } else {
-                        noAbilityUsed(ourPokemon, enemyPokemon);
+                    System.out.println("Press 1 for attack choice");
+                    System.out.println("Press 2 for new pokemon");
+                    int choice=scanner.nextInt();
+                    switch (choice){
+                        case 1:
+                           yourAttacks.AbilityChoice(yourChoose,enemyChoose);
+                            break ;
+                        case 2:
+                            yourChoose.remove(0);
+                            yourChoose= ourPokemon.youChooseOnePokemon();
+                            System.out.println("Choice attack!");
+                            yourAttacks.AbilityChoice(yourChoose,enemyChoose);
+                            break;
                     }
 
                 }
+                 if (enemyChoose.get(0).HP <= 0) {
+                     System.out.println(enemyPokemon.enemyChoose.get(0).name + " is dead");
+                     enemyChoose.remove(0);
+                     crystals += randomCrystalGenerator() ;
+                     if (enemyPokemon.enemyPokemonList.size() <= 0)  {
+                         System.out.println("All enemy pokemons are dead.");
+                         break loop;
+                     } else  {
+                         System.out.print("Enemy player choose: ");
+                         enemyChoose= enemyPokemon.enemyChoosePokemon();
+                         roundCounter++;
+                         System.out.println("Crystals amount: " + crystals);
+                         continue;
+                     }
 
-                if (ourPokemon.yourChoose.get(0).HP < 0 ) {
-                    ourPokemon.yourChoose.get(0).HP = healthBar;
-                    ourPokemon.removedPokemon.add(ourPokemon.yourChoose.get(0));
-                    ourPokemon.myPokemon.remove(ourPokemon.yourChoose.get(0));
-                    System.out.println(ourPokemon.yourChoose.get(0).name + " is dead");
-                    if (ourPokemon.myPokemon.size() <= 0) {
-                        break loop;
-                    } else {
-                        if (crystals > 10) {
-                            System.out.println("Do you want to resurrect a pokemon? ");
-                            ourPokemon.returnPokemon();
-                            crystals = 0;
-                        }
-                        ourPokemon.youChooseOnePokemon();
-                        roundCounter++;
-                        break;
-                    }
-
-                } else if (enemyPokemon.enemyChoose.get(0).HP < 0) {
-                    System.out.println(enemyPokemon.enemyChoose.get(0).name + " is dead");
-                    crystals += randomCrystalGenerator() ;
-                    if (enemyPokemon.enemyPokemonList.size() <= 0)  {
-                        System.out.println("All enemy pokemons are dead.");
-                        break loop;
-                    } else  {
-                        System.out.print("Enemy player choose: ");
-                        enemyPokemon.enemyChoosePokemon();
-                        roundCounter++;
-                        System.out.println("Crystals amount: " + crystals);
-                        continue;
-                    }
-
-                }
+                 }
                 roundCounter++;
             } // while 2 end
             System.out.println("Crystals amount: " + crystals);
@@ -117,34 +142,6 @@ public class Main {
         whoWins(ourPokemon);
     }
 
-    private static void noAbilityUsed(MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
-        System.out.println("Enemy pokemon HP is: " + enemyPokemon.enemyChoose.get(0).HP);
-        System.out.println(ourPokemon.yourChoose.get(0).name + " is attacking with: " +  ourPokemon.yourChoose.get(0).AP + " Attack power");
-        System.out.println("Enemy pokemon HP now is: " + (enemyPokemon.enemyChoose.get(0).HP - ourPokemon.yourChoose.get(0).AP) );
-        enemyPokemon.enemyChoose.get(0).HP -= ourPokemon.yourChoose.get(0).AP;
-    }
-
-    private static void highAbilityUsed(MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
-        System.out.println("Enemy pokemon HP is: " + enemyPokemon.enemyChoose.get(0).HP);
-        System.out.println(ourPokemon.yourChoose.get(0).name + " is attacking with: " +  ourPokemon.highAbility() + " Attack power");
-        System.out.println("Enemy pokemon HP now is: " + (enemyPokemon.enemyChoose.get(0).HP - ourPokemon.highAbility()) );
-        enemyPokemon.enemyChoose.get(0).HP -= ourPokemon.highAbility();
-    }
-
-    private static void mediumAbilityUsed(MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
-        System.out.println("Enemy pokemon HP is: " + enemyPokemon.enemyChoose.get(0).HP);
-        System.out.println(ourPokemon.yourChoose.get(0).name + " is attacking with: " +  ourPokemon.mediumAbility() + " Attack power");
-        System.out.println("Enemy pokemon HP now is: " + (enemyPokemon.enemyChoose.get(0).HP - ourPokemon.mediumAbility()) );
-        enemyPokemon.enemyChoose.get(0).HP -= ourPokemon.mediumAbility();
-    }
-
-    private static void lowAbilityUsed(MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
-        System.out.println("Enemy pokemon HP is: " + enemyPokemon.enemyChoose.get(0).HP);
-        System.out.println(ourPokemon.yourChoose.get(0).name + " is attacking with: " +  ourPokemon.lowAbility() + " Attack power");
-        System.out.println("Enemy pokemon HP now is: " + (enemyPokemon.enemyChoose.get(0).HP - ourPokemon.lowAbility()) );
-        enemyPokemon.enemyChoose.get(0).HP -= ourPokemon.lowAbility();
-    }
-
     public static void menuOption() {
         System.out.println("1. Play a game!");
         System.out.println("2. Check logs");
@@ -152,12 +149,12 @@ public class Main {
         System.out.print("Please, select an option from the menu: " + "\n");
     }
 
-    public static void switchMenuOptions (MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
+    public static void switchMenuOptions (MyPokemon ourPokemon, EnemyPokemon enemyPokemon,YourAttacks yourAttacks,EnemyAttacks enemyAttacks) {
         Scanner scanner = new Scanner(System.in);
         byte userOption = scanner.nextByte();
         switch (userOption) {
-           case 1 -> playTheGame(ourPokemon, enemyPokemon);
-           case 2 -> winnerReader(ourPokemon, enemyPokemon);
+           case 1 -> playTheGame(ourPokemon, enemyPokemon,yourAttacks,enemyAttacks);
+           case 2 -> winnerReader(ourPokemon, enemyPokemon,yourAttacks,enemyAttacks);
             default -> System.out.println("Have a great day!");
         }
     }
@@ -192,7 +189,7 @@ public class Main {
         }
     }
 
-    private static void winnerReader(MyPokemon ourPokemon, EnemyPokemon enemyPokemon) {
+    private static void winnerReader(MyPokemon ourPokemon, EnemyPokemon enemyPokemon,YourAttacks yourAttacks,EnemyAttacks enemyAttacks) {
         try {
             File winner = new File("winner.txt");
             Scanner myReader = new Scanner(winner);
@@ -206,7 +203,7 @@ public class Main {
         }
 
         menuOption();
-        switchMenuOptions(ourPokemon,enemyPokemon);
+        switchMenuOptions(ourPokemon,enemyPokemon,yourAttacks,enemyAttacks);
     }
 
     private static void roundCounter(int roundCounter) {

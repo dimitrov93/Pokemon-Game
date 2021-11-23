@@ -2,7 +2,8 @@ package com.company;
 
 import java.util.*;
 
-public class EnemyPokemon extends Pokemon implements EnemyAbility {
+//public class EnemyPokemon extends Pokemon implements EnemyAbility {
+public class EnemyPokemon extends Pokemon{
     Pokemon[]pokemon;
     ArrayList<Pokemon>enemyPokemonList=new ArrayList<>();
     public EnemyPokemon() {
@@ -52,33 +53,33 @@ public class EnemyPokemon extends Pokemon implements EnemyAbility {
         }
 
     }
-    public void enemyChoosePokemon(){
+    public ArrayList<Pokemon> enemyChoosePokemon(){
         Collections.shuffle(enemyPokemonList);
         enemyChoose.add(0,enemyPokemonList.get(0)) ;
         System.out.println(enemyChoose.get(0).name);
         enemyPokemonList.remove(0);
-
+        return enemyChoose;
     }
 
-    @Override
-    public void pcAttackingYouWithLowAbility() {
-        System.out.println("Enemy pokemon attack you with low ability! Now your health is " );
-        System.out.println(super.yourChoose.size());
-        System.out.println(enemyChoose.size());
-    }
-
-    @Override
-    public void pcAttackingYouWithMediumAbility() {
-        System.out.println("Enemy pokemon attack you with medium ability! Now your health is ");
-    }
-
-    @Override
-    public void pcAttackingYouWithHighAbility() {
-        System.out.println("Enemy pokemon attack you with high ability! Now your health is ");
-    }
-
-    @Override
-    public void pcUseShield() {
-
-    }
+//    @Override
+//    public void pcAttackingYouWithLowAbility() {
+//        System.out.println("Enemy pokemon attack you with low ability! Now your health is " );
+//        System.out.println(super.yourChoose.size());
+//        System.out.println(enemyChoose.size());
+//    }
+//
+//    @Override
+//    public void pcAttackingYouWithMediumAbility() {
+//        System.out.println("Enemy pokemon attack you with medium ability! Now your health is ");
+//    }
+//
+//    @Override
+//    public void pcAttackingYouWithHighAbility() {
+//        System.out.println("Enemy pokemon attack you with high ability! Now your health is ");
+//    }
+//
+//    @Override
+//    public void pcUseShield() {
+//
+//    }
 }
