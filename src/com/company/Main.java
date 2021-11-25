@@ -137,7 +137,7 @@ public class Main {
         int n = scanner.nextInt();
         switch (n) {
             case 1:
-                yourChoose = ourPokemon.youChooseOnePokemon();
+                yourChoose =ourPokemon.youChooseOnePokemon();
                 crystals = 0;
                 break;
             case 2:
@@ -227,8 +227,9 @@ public class Main {
     }
 
     public static void trainerName() {
+        Scanner in=new Scanner(System.in);
         System.out.print("Trainer, enter your name: ");
-        trainerName = scanner.nextLine();
+        trainerName = in.nextLine();
     }
 
     public static String selectPokemons() {

@@ -12,7 +12,7 @@ public class EnemyAttacks extends Pokemon implements EnemyAbility {
         System.out.println("Your health is: " + yourPokemon.get(0).HP);
         int defence = (int) (yourPokemon.get(0).DP - (yourPokemon.get(0).DP * 0.3));
         System.out.println("Your defence is: " + defence);
-        yourPokemon.get(0).HP = (yourPokemon.get(0).HP + defence) - enemyPokemon.get(0).AP;
+        yourPokemon.get(0).HP = (yourPokemon.get(0).HP + defence) - (enemyPokemon.get(0).AP+15);
         System.out.println(yourPokemon.get(0).name + " hp: " + yourPokemon.get(0).HP);
         System.out.println();
     }
@@ -23,7 +23,7 @@ public class EnemyAttacks extends Pokemon implements EnemyAbility {
         System.out.println("Your health is: " + yourPokemon.get(0).HP);
         int defence = (int) (yourPokemon.get(0).DP - (yourPokemon.get(0).DP * 0.3));
         System.out.println("Your defence is: " + defence);
-        yourPokemon.get(0).HP = (yourPokemon.get(0).HP + defence) - (enemyPokemon.get(0).AP + 5);
+        yourPokemon.get(0).HP = (yourPokemon.get(0).HP + defence) - (enemyPokemon.get(0).AP +20);
         System.out.println(yourPokemon.get(0).name + " hp: " + yourPokemon.get(0).HP);
         System.out.println();
     }
@@ -34,7 +34,7 @@ public class EnemyAttacks extends Pokemon implements EnemyAbility {
         System.out.println("Your health is: " + yourPokemon.get(0).HP);
         int defence = (int) (yourPokemon.get(0).DP - (yourPokemon.get(0).DP * 0.3));
         System.out.println("Your defence is: " + defence);
-        yourPokemon.get(0).HP = (yourPokemon.get(0).HP + defence) - (enemyPokemon.get(0).AP + 10);
+        yourPokemon.get(0).HP = (yourPokemon.get(0).HP + defence) - (enemyPokemon.get(0).AP + 30);
         System.out.println(yourPokemon.get(0).name + " hp: " + yourPokemon.get(0).HP);
         System.out.println();
     }
