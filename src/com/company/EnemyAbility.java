@@ -9,5 +9,5 @@ public interface EnemyAbility {
 
     public void pcAttackingYouWithHighAbility(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon);
 
-    public void pcUseShield(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon);
+    public void pcUseShield(ArrayList<Pokemon> enemyPokemon);
 }
