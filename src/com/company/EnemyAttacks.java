@@ -8,41 +8,56 @@ public class EnemyAttacks extends Pokemon implements EnemyAbility {
 
     @Override
     public void pcAttackingYouWithLowAbility(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
-        System.out.println("Enemy pokemon: " + enemyPokemon.get(0).name + " attacking you with low ability");
-        System.out.println("Your health is: " + yourPokemon.get(0).HP);
-        int defence = (int) (yourPokemon.get(0).DP - (yourPokemon.get(0).DP * 0.3));
-        System.out.println("Your defence is: " + defence);
-        yourPokemon.get(0).HP = (yourPokemon.get(0).HP + defence) - (enemyPokemon.get(0).AP+15);
-        System.out.println(yourPokemon.get(0).name + " hp: " + yourPokemon.get(0).HP);
+        System.out.println("Enemy pokemon attacking you with low ability");
+        System.out.println("Your health: " + yourPokemon.get(0).HP);
+        System.out.println("Your defence power: "+yourPokemon.get(0).DP);
+        int defence = (int)(yourPokemon.get(0).DP * 0.6);
+        System.out.println("Your defence = 60% your defence power");
+        System.out.println("Your defence: " + defence);
+        System.out.println("Enemy attack power: "+enemyPokemon.get(0).AP);
+        yourPokemon.get(0).HP = (yourPokemon.get(0).HP + defence) - enemyPokemon.get(0).AP;
+        System.out.println("Your health=(your health + your defence)-enemy attack power");
+        System.out.println("Your pokemon: "+yourPokemon.get(0).name + " hp: " + yourPokemon.get(0).HP);
         System.out.println();
     }
 
     @Override
     public void pcAttackingYouWithMediumAbility(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
-        System.out.println(enemyPokemon.get(0).name + " attacking you with medium ability");
-        System.out.println("Your health is: " + yourPokemon.get(0).HP);
-        int defence = (int) (yourPokemon.get(0).DP - (yourPokemon.get(0).DP * 0.3));
+        System.out.println("Enemy pokemon attacking you with medium ability");
+        System.out.println("Your health: " + yourPokemon.get(0).HP);
+        System.out.println("Your defence power: "+yourPokemon.get(0).DP);
+        int defence = (int)(yourPokemon.get(0).DP * 0.6);
+        System.out.println("Your defence = 60% your defence power");
         System.out.println("Your defence is: " + defence);
-        yourPokemon.get(0).HP = (yourPokemon.get(0).HP + defence) - (enemyPokemon.get(0).AP +20);
-        System.out.println(yourPokemon.get(0).name + " hp: " + yourPokemon.get(0).HP);
+        System.out.println("Enemy attack power: "+enemyPokemon.get(0).AP);
+        yourPokemon.get(0).HP = (yourPokemon.get(0).HP + defence) - (enemyPokemon.get(0).AP +5);
+        System.out.println("Your health=(your health + your defence)-(enemy attack power + 5)");
+        System.out.println("Your pokemon: "+yourPokemon.get(0).name + " hp: " + yourPokemon.get(0).HP);
         System.out.println();
     }
 
     @Override
     public void pcAttackingYouWithHighAbility(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
-        System.out.println(enemyPokemon.get(0).name + " attacking you with high ability");
-        System.out.println("Your health is: " + yourPokemon.get(0).HP);
-        int defence = (int) (yourPokemon.get(0).DP - (yourPokemon.get(0).DP * 0.3));
+        System.out.println("Enemy pokemon attacking you with high ability");
+        System.out.println("Your health: " + yourPokemon.get(0).HP);
+        System.out.println("Your defence power: "+yourPokemon.get(0).DP);
+        int defence = (int)(yourPokemon.get(0).DP * 0.6);
+        System.out.println("Your defence = 60% your defence power");
         System.out.println("Your defence is: " + defence);
-        yourPokemon.get(0).HP = (yourPokemon.get(0).HP + defence) - (enemyPokemon.get(0).AP + 30);
-        System.out.println(yourPokemon.get(0).name + " hp: " + yourPokemon.get(0).HP);
+        System.out.println("Enemy attack power: "+enemyPokemon.get(0).AP);
+        yourPokemon.get(0).HP = (yourPokemon.get(0).HP + defence) - (enemyPokemon.get(0).AP + 10);
+        System.out.println("Your health=(your health + your defence)-(enemy attack power + 10)");
+        System.out.println("Your pokemon: "+yourPokemon.get(0).name + " hp: " + yourPokemon.get(0).HP);
         System.out.println();
     }
 
     @Override
-    public void pcUseShield(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
+    public void pcUseShield(ArrayList<Pokemon> enemyPokemon) {
         System.out.println("Enemy used shield");
+        System.out.println("Defence power before shield: "+enemyPokemon.get(0).DP);
         enemyPokemon.get(0).DP += 5;
+        System.out.println("Enemy defence power increase with five points");
+        System.out.println("Defence power after shield on "+enemyPokemon.get(0).name+ " is "+ enemyPokemon.get(0).DP);
         System.out.println();
     }
 
@@ -61,7 +76,7 @@ public class EnemyAttacks extends Pokemon implements EnemyAbility {
                 pcAttackingYouWithHighAbility(yourPokemon, enemyPokemon);
                 break;
             case 4:
-                pcUseShield(yourPokemon, enemyPokemon);
+                pcUseShield(enemyPokemon);
                 break;
         }
     }

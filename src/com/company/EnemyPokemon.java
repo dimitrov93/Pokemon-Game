@@ -31,35 +31,35 @@ public class EnemyPokemon extends Pokemon{
             }
         }
     }
-
-    public ArrayList<Pokemon> randomEnemyPokemonInBattle() {
-        Random rnd = new Random();
-        ArrayList<Integer> randomCounts = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            int n = rnd.nextInt(5);
-
-            while (randomCounts.contains(n)) {
-                n = rnd.nextInt(5);
-            }
-            randomCounts.add(n);
-            enemyPokemonList.add(pokemon[n]);
-        }
-        return enemyPokemonList;
-    }
-
-    public void printEnemyPokemon() {
-        System.out.println("Enemy pokemons are:");
-        for (int i = 0; i < 3; i++) {
-            System.out.println(enemyPokemonList.get(i));
-        }
-
-    }
-
-    public ArrayList<Pokemon> enemyChoosePokemon() {
-        Collections.shuffle(enemyPokemonList);
-        enemyChoose.add(0, enemyPokemonList.get(0));
-        System.out.println(enemyChoose.get(0).name);
-        enemyPokemonList.remove(0);
-        return enemyChoose;
-    }
+//
+//    public ArrayList<Pokemon> randomEnemyPokemonInBattle() {
+//        Random rnd = new Random();
+//        ArrayList<Integer> randomCounts = new ArrayList<>();
+//        for (int i = 0; i < 3; i++) {
+//            int n = rnd.nextInt(5);
+//
+//            while (randomCounts.contains(n)) {
+//                n = rnd.nextInt(5);
+//            }
+//            randomCounts.add(n);
+//            enemyPokemonList.add(pokemon[n]);
+//        }
+//        return enemyPokemonList;
+//    }
+//
+//    public void printEnemyPokemon() {
+//        System.out.println("Enemy pokemons are:");
+//        for (int i = 0; i < 3; i++) {
+//            System.out.println(enemyPokemonList.get(i));
+//        }
+//
+//    }
+//
+//    public ArrayList<Pokemon> enemyChoosePokemon() {
+//        Collections.shuffle(enemyPokemonList);
+//        enemyChoose.add(0, enemyPokemonList.get(0));
+//        System.out.println(enemyChoose.get(0).name);
+//        enemyPokemonList.remove(0);
+//        return enemyChoose;
+//    }
 }
