@@ -3,7 +3,7 @@ package com.company;
 import java.util.*;
 
 public class MyPokemon extends Pokemon  {
-    Pokemon[] pokemon;
+    public Pokemon[] pokemon;
     ArrayList<Pokemon> myPokemon = new ArrayList<>();
     public ArrayList<Pokemon>copyYourTeam=new ArrayList<>();
     Scanner scanner = new Scanner(System.in);

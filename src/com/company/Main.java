@@ -53,7 +53,7 @@ public class Main {
         enemyTeam.randomEnemyPokemonInBattle();
         enemyTeam.printEnemyPokemon();
         System.out.println();
-        battle.playTheGame(yourTeam, enemyTeam, yourAttacks, enemyAttacks);
+        battle.playTheGame(trainer,yourTeam, enemyTeam, yourAttacks, enemyAttacks);
         break;
             case 2 :winner.winnerReader();
             break;
