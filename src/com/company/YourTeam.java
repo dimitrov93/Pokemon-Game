@@ -12,34 +12,34 @@ public class YourTeam extends MyPokemon implements YourPokemons{
         while (count < 3) {
             int n = scanner.nextInt();
             myPokemon.add(pokemon[n - 1]);
-            copyYourTeam.add(pokemon[n - 1]);
+//            copyYourTeam.add(pokemon[n - 1]);
             count++;
         }
 
         return myPokemon;
     }
-    public ArrayList<Pokemon> restorePokemon(){
-        for (int i = 0; i < copyYourTeam.size(); i++) {
-            System.out.println((i + 1) + ":" +copyYourTeam.get(i).name);
-        }
-        int choice = scanner.nextInt();
-
-        switch (choice) {
-            case 1:
-                yourChoose.add(0, copyYourTeam.get(0));
-                System.out.println("Your Pokemon is: " + yourChoose.get(0).name+" hp:"+ yourChoose.get(0).HP);
-                break;
-            case 2:
-                yourChoose.add(0, copyYourTeam.get(1));
-                System.out.println("Your Pokemon is: " + yourChoose.get(0).name+" hp:"+ yourChoose.get(0).HP);
-                break;
-            case 3:
-                yourChoose.add(0, copyYourTeam.get(2));
-                System.out.println("Your Pokemon is: " + yourChoose.get(0).name+" hp:"+ yourChoose.get(0).HP);
-                break;
-        }
-        return yourChoose;
-    }
+//    public ArrayList<Pokemon> restorePokemon(){
+//        for (int i = 0; i < copyYourTeam.size(); i++) {
+//            System.out.println((i + 1) + ":" +copyYourTeam.get(i).name);
+//        }
+//        int choice = scanner.nextInt();
+//
+//        switch (choice) {
+//            case 1:
+//                yourChoose.add(0, copyYourTeam.get(0));
+//                System.out.println("Your Pokemon is: " + yourChoose.get(0).name+" hp:"+ yourChoose.get(0).HP);
+//                break;
+//            case 2:
+//                yourChoose.add(0, copyYourTeam.get(1));
+//                System.out.println("Your Pokemon is: " + yourChoose.get(0).name+" hp:"+ yourChoose.get(0).HP);
+//                break;
+//            case 3:
+//                yourChoose.add(0, copyYourTeam.get(2));
+//                System.out.println("Your Pokemon is: " + yourChoose.get(0).name+" hp:"+ yourChoose.get(0).HP);
+//                break;
+//        }
+//        return yourChoose;
+//    }
 
     @Override
     public void printMyPokemons() {

@@ -17,7 +17,7 @@ public class Awards extends Pokemon {
         int n = scanner.nextInt();
         switch (n) {
             case 1:
-                yourChoose =yourTeam.restorePokemon();
+                //yourChoose =yourTeam.restorePokemon();
                 crystals = 0;
                 break;
             case 2:

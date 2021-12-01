@@ -5,17 +5,17 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class Winner {
-    Trainer trainer=new Trainer();
+public class Winner{
+    String winner;
 
-    public void whoWins(YourTeam yourTeam) {
-        String winner;
+    public void whoWins(YourTeam yourTeam,Trainer trainer) {
+
         if (yourTeam.myPokemon.size() <= 0) {
             System.out.println("The enemy wins!");
-            winner = "The enemy";
+            this.winner = "The enemy";
         } else {
             System.out.println(trainer.trainerName + " you win!");
-            winner = trainer.trainerName;
+            this.winner = trainer.trainerName;
         }
 
         winnerWriter(winner);

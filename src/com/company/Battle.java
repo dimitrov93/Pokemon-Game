@@ -10,7 +10,8 @@ public class Battle extends Pokemon {
     Awards awards=new Awards();
     Winner winner=new Winner();
 
-    public void playTheGame(YourTeam yourTeam, EnemyTeam enemyTeam, YourAttacks yourAttacks, EnemyAttacks enemyAttacks) {
+    public void playTheGame(Trainer trainer,YourTeam yourTeam, EnemyTeam enemyTeam,
+                            YourAttacks yourAttacks, EnemyAttacks enemyAttacks) {
         int roundCounter = 1;
         System.out.println("The battle begins");
         System.out.println("Choose pokemon to play with: ");
@@ -74,6 +75,6 @@ public class Battle extends Pokemon {
         }
 
         System.out.println();
-        winner.whoWins(yourTeam);
+        winner.whoWins(yourTeam,trainer);
     }
 }
