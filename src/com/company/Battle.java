@@ -18,60 +18,63 @@ public class Battle extends Pokemon {
         yourChoose=yourTeam.youChooseOnePokemon();
         System.out.print("Enemy player choose: ");
         enemyChoose = enemyTeam.enemyChoosePokemon();
-        while (enemyTeam.enemyPokemonList.size() != 0 || yourTeam.myPokemon.size() != 0 || roundCounter <= 5) {
-            System.out.println();
-            System.out.println();
-            if (roundCounter % 2 != 0) {
-                System.out.println("Round: " + roundCounter + " - Enemy attack!"+'\n');
-                enemyAttacks.AbilityChoice(yourChoose, enemyChoose);
-                if (yourChoose.get(0).HP <= 0) {
-                    yourTeam.yourPokemonDied(yourTeam);
-                    if (yourTeam.myPokemon.size() <= 0 && awards.crystals < 10) {
-                        break;
-                    } else if (yourTeam.myPokemon.size() <= 0 && awards.crystals > 10) {
-                        System.out.println("Crystals amount: " + awards.crystals);
-                        awards.pokemonRebirth(yourTeam);
-                    } else {
-                        if (yourTeam.myPokemon.size() == 1) {
-                            System.out.println("There is only one Pokemon left");
-                            yourChoose.add(yourTeam.myPokemon.get(0));
-                            System.out.println("You play with:" + yourChoose.get(0).name);
-                        } else if (yourTeam.myPokemon.size() > 1) {
-                            yourChoose = yourTeam.youChooseOnePokemon();
+        System.out.println(" ");
+        loop: while (enemyTeam.enemyPokemonList.size() != 0 || yourTeam.myPokemon.size() != 0 || roundCounter <= 5) {
+            int healthBar = yourChoose.get(0).HP;
+
+            while (true) {
+                if (roundCounter % 2 != 0) {
+                    System.out.println("Round: " + roundCounter + " - Enemy attack! " + "Crystals amount: " + + awards.crystals+ '\n');
+                    enemyAttacks.AbilityChoice(yourChoose, enemyChoose);
+                    if (yourChoose.get(0).HP <= 0) {
+                        yourTeam.yourPokemonDied(yourTeam, healthBar);
+                        if (yourTeam.myPokemon.size() <= 0 && awards.crystals < 10) {
+                            break;
+                        } else if (awards.crystals > 10) {
+                            awards.pokemonRebirth(yourTeam);
+                            yourTeam.youChooseOnePokemon();
+                        } else {
+                            if (yourTeam.myPokemon.size() == 1) {
+                                System.out.println(" ");
+                                yourChoose.add(yourTeam.myPokemon.get(0));
+                                System.out.println("There is only one Pokemon left. You play with: " + yourChoose.get(0).name);
+                            } else if (yourTeam.myPokemon.size() > 1) {
+                                yourChoose = yourTeam.youChooseOnePokemon();
+                            }
                         }
                     }
-                }
 
-            } else {
-                if (yourTeam.myPokemon.size() > 1) {
-                    System.out.println("Round: " + roundCounter + " - You attack!"+'\n');
-                    System.out.println("Press 1 for attack choice");
-                    System.out.println("Press 2 for new pokemon");
-                    int choice = scanner.nextInt();
-                    switch (choice) {
-                        case 1 -> yourAttacks.AbilityChoice(yourChoose, enemyChoose);
-                        case 2 -> yourTeam.choiceNewPokemonForBattle(yourAttacks,enemyChoose);
-                    }
-                } else if (yourTeam.myPokemon.size() == 1) {
-                    System.out.println("Choice your attack");
-                    yourAttacks.AbilityChoice(yourChoose, enemyChoose);
-                }
-
-            }
-            if (enemyChoose.get(0).HP <= 0) {
-                System.out.println(enemyTeam.enemyChoose.get(0).name + " is dead");
-                enemyChoose.remove(0);
-                awards.crystals += awards.crystalGenerator();
-                if (enemyTeam.enemyPokemonList.size() <= 0) {
-                    System.out.println("All enemy pokemons are dead.");
-                    break;
                 } else {
-                    enemyTeam.enemyChoiceNewPokemonForBattle(awards,enemyTeam);
-                    roundCounter++;
-                    continue;
+                    if (yourTeam.myPokemon.size() > 1) {
+                        System.out.println("Round: " + roundCounter + " - You attack!" + " Crystals amount: " + awards.crystals + '\n');
+                        System.out.println("Press 1 for attack choice");
+                        System.out.println("Press 2 for new pokemon");
+                        int choice = scanner.nextInt();
+                        switch (choice) {
+                            case 1 -> yourAttacks.AbilityChoice(yourChoose, enemyChoose);
+                            case 2 -> yourTeam.choiceNewPokemonForBattle(yourAttacks, enemyChoose);
+                        }
+                    } else if (yourTeam.myPokemon.size() == 1) {
+                        System.out.println("Choice your attack");
+                        yourAttacks.AbilityChoice(yourChoose, enemyChoose);
+                    }
+
                 }
+                if (enemyChoose.get(0).HP <= 0) {
+                    System.out.println(enemyTeam.enemyChoose.get(0).name + " is dead");
+                    enemyChoose.remove(0);
+                    awards.crystals += awards.crystalGenerator();
+                    if (enemyTeam.enemyPokemonList.size() <= 0) {
+                        System.out.println("All enemy pokemons are dead.");
+                        break loop;
+                    } else {
+                        enemyTeam.enemyChoiceNewPokemonForBattle(awards, enemyTeam);
+                        roundCounter++;
+                        continue;
+                    }
+                }
+                roundCounter++;
             }
-            roundCounter++;
         }
 
         System.out.println();

@@ -19,28 +19,26 @@ public class YourTeam extends MyPokemon implements YourPokemons{
 
         return myPokemon;
     }
-//    public ArrayList<Pokemon> restorePokemon(){
-//        for (int i = 0; i < copyYourTeam.size(); i++) {
-//            System.out.println((i + 1) + ":" +copyYourTeam.get(i).name);
-//        }
-//        int choice = scanner.nextInt();
-//
-//        switch (choice) {
-//            case 1:
-//                yourChoose.add(0, copyYourTeam.get(0));
-//                System.out.println("Your Pokemon is: " + yourChoose.get(0).name+" hp:"+ yourChoose.get(0).HP);
-//                break;
-//            case 2:
-//                yourChoose.add(0, copyYourTeam.get(1));
-//                System.out.println("Your Pokemon is: " + yourChoose.get(0).name+" hp:"+ yourChoose.get(0).HP);
-//                break;
-//            case 3:
-//                yourChoose.add(0, copyYourTeam.get(2));
-//                System.out.println("Your Pokemon is: " + yourChoose.get(0).name+" hp:"+ yourChoose.get(0).HP);
-//                break;
-//        }
-//        return yourChoose;
-//    }
+    public ArrayList<Pokemon> restorePokemon(YourTeam yourTeam){
+        for (int i = 0; i < removedPokemon.size(); i++) {
+            System.out.println((i + 1) + ":" +removedPokemon.get(i).name);
+        }
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1:
+                yourTeam.myPokemon.add(removedPokemon.get(0));
+                break;
+            case 2:
+                yourTeam.myPokemon.add(removedPokemon.get(1));
+
+                break;
+            case 3:
+                yourTeam.myPokemon.add(removedPokemon.get(1));
+                break;
+        }
+        return yourChoose;
+    }
 
     @Override
     public void printMyPokemons() {
@@ -81,8 +79,10 @@ public class YourTeam extends MyPokemon implements YourPokemons{
         yourAttacks.AbilityChoice(yourChoose, enemyChoose);
     }
 
-    public void yourPokemonDied(YourTeam yourTeam) {
+    public void yourPokemonDied(YourTeam yourTeam, int healthBar) {
         System.out.println(yourTeam.yourChoose.get(0).name + " is dead");
+        yourChoose.get(0).HP = healthBar;
+        yourTeam.removedPokemon.add(yourChoose.get(0));
         yourTeam.myPokemon.remove(yourChoose.get(0));
         yourChoose.remove(0);
     }
