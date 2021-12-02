@@ -4,10 +4,8 @@ import java.util.*;
 
 public class MyPokemon extends Pokemon  {
     public Pokemon[] pokemon;
-    ArrayList<Pokemon> myPokemon = new ArrayList<>();
-    public ArrayList<Pokemon>copyYourTeam=new ArrayList<>();
+    public ArrayList<Pokemon> myPokemon = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
-
 
     public MyPokemon() {
         this.pokemon = new Pokemon[5];

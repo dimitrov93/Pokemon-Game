@@ -6,15 +6,16 @@ import java.util.Scanner;
 public class YourTeam extends MyPokemon implements YourPokemons{
 
     @Override
-    public ArrayList<Pokemon> choosePokemonInBattle() {
-        Scanner scanner = new Scanner(System.in);
-        int count = 0;
-        while (count < 3) {
-            int n = scanner.nextInt();
-            myPokemon.add(pokemon[n - 1]);
-//            copyYourTeam.add(pokemon[n - 1]);
-            count++;
-        }
+    public ArrayList<Pokemon> choosePokemonInBattle(int selectedPokemon) {
+//        Scanner scanner = new Scanner(System.in);
+//        int count = 0;
+//        while (count < 3) {
+//            int n = scanner.nextInt();
+//            myPokemon.add(pokemon[n - 1]);
+////            copyYourTeam.add(pokemon[n - 1]);
+//            count++;
+//        }
+        myPokemon.add(pokemon[selectedPokemon - 1]);
 
         return myPokemon;
     }

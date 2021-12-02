@@ -7,7 +7,7 @@ public class EnemyAttacks extends Pokemon implements EnemyAbility {
     Random rnd=new Random();
 
     @Override
-    public void pcAttackingYouWithLowAbility(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
+    public int pcAttackingYouWithLowAbility(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
         System.out.println("Enemy pokemon attacking you with low ability");
         System.out.println("Your health: " + yourPokemon.get(0).HP);
         System.out.println("Your defence power: "+yourPokemon.get(0).DP);
@@ -19,10 +19,11 @@ public class EnemyAttacks extends Pokemon implements EnemyAbility {
         System.out.println("Your health=(your health + your defence)-enemy attack power");
         System.out.println("Your pokemon: "+yourPokemon.get(0).name + " hp: " + yourPokemon.get(0).HP);
         System.out.println();
+        return yourPokemon.get(0).HP;
     }
 
     @Override
-    public void pcAttackingYouWithMediumAbility(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
+    public int pcAttackingYouWithMediumAbility(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
         System.out.println("Enemy pokemon attacking you with medium ability");
         System.out.println("Your health: " + yourPokemon.get(0).HP);
         System.out.println("Your defence power: "+yourPokemon.get(0).DP);
@@ -34,10 +35,11 @@ public class EnemyAttacks extends Pokemon implements EnemyAbility {
         System.out.println("Your health=(your health + your defence)-(enemy attack power + 5)");
         System.out.println("Your pokemon: "+yourPokemon.get(0).name + " hp: " + yourPokemon.get(0).HP);
         System.out.println();
+        return yourPokemon.get(0).HP;
     }
 
     @Override
-    public void pcAttackingYouWithHighAbility(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
+    public int pcAttackingYouWithHighAbility(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
         System.out.println("Enemy pokemon attacking you with high ability");
         System.out.println("Your health: " + yourPokemon.get(0).HP);
         System.out.println("Your defence power: "+yourPokemon.get(0).DP);
@@ -49,16 +51,18 @@ public class EnemyAttacks extends Pokemon implements EnemyAbility {
         System.out.println("Your health=(your health + your defence)-(enemy attack power + 10)");
         System.out.println("Your pokemon: "+yourPokemon.get(0).name + " hp: " + yourPokemon.get(0).HP);
         System.out.println();
+        return yourPokemon.get(0).HP;
     }
 
     @Override
-    public void pcUseShield(ArrayList<Pokemon> enemyPokemon) {
+    public int pcUseShield(ArrayList<Pokemon> enemyPokemon) {
         System.out.println("Enemy used shield");
         System.out.println("Defence power before shield: "+enemyPokemon.get(0).DP);
         enemyPokemon.get(0).DP += 5;
         System.out.println("Enemy defence power increase with five points");
         System.out.println("Defence power after shield on "+enemyPokemon.get(0).name+ " is "+ enemyPokemon.get(0).DP);
         System.out.println();
+        return enemyPokemon.get(0).DP;
     }
 
 

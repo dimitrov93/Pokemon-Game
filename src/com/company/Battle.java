@@ -61,7 +61,7 @@ public class Battle extends Pokemon {
             if (enemyChoose.get(0).HP <= 0) {
                 System.out.println(enemyTeam.enemyChoose.get(0).name + " is dead");
                 enemyChoose.remove(0);
-                awards.crystals += awards.randomCrystalGenerator();
+                awards.crystals += awards.crystalGenerator();
                 if (enemyTeam.enemyPokemonList.size() <= 0) {
                     System.out.println("All enemy pokemons are dead.");
                     break;

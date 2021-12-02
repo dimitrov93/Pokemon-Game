@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class Awards extends Pokemon {
     Scanner scanner = new Scanner(System.in);
-    int crystals;
-    Awards(){
-        this.crystals=0;
-    }
+    public int crystals;
+//    Awards(){
+//        this.crystals=0;
+//    }
 
     public  void pokemonRebirth(YourTeam yourTeam) {
         System.out.println("Do you want to resurrect a pokemon? ");
@@ -25,7 +25,7 @@ public class Awards extends Pokemon {
                 break;
         }
     }
-    public  int randomCrystalGenerator() {
+    public  int crystalGenerator() {
 //        Random rand = new Random();
 //        int randomCrystal = rand.nextInt(20) + 1;
         int randomCrystal=11;

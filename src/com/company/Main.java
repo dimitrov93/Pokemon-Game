@@ -40,13 +40,20 @@ public class Main {
     public static void switchMenuOptions(Trainer trainer,Battle battle,Winner winner,YourTeam yourTeam
             ,EnemyTeam enemyTeam, YourAttacks yourAttacks, EnemyAttacks enemyAttacks) {
         Scanner scanner = new Scanner(System.in);
+
         byte userOption = scanner.nextByte();
         switch (userOption) {
             case 1:
                 trainer.trainerName();
         System.out.println(trainer.trainerName + " - Welcome to the tournament!");
         System.out.println("Select your pokemons:" + selectPokemons());
-        yourTeam.choosePokemonInBattle();
+        int count=0;
+        while(count<3){
+            byte selectedPokemon=scanner.nextByte();
+            yourTeam.choosePokemonInBattle(selectedPokemon);
+            count++;
+        }
+
         yourTeam.printMyPokemons();
         System.out.println();
 
