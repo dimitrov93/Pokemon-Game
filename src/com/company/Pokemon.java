@@ -9,8 +9,6 @@ public class Pokemon {
     public int HP; // health points
     public int AP; // attack power
     public int DP; // defense
-    public ArrayList<Pokemon> yourChoose = new ArrayList<>();
-    public ArrayList<Pokemon> enemyChoose = new ArrayList<>();
 
     public Pokemon(String name, String type, String size, int HP, int AP, int DP) {
         this.name = name;

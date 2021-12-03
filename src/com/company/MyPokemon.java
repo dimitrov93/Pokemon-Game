@@ -2,10 +2,9 @@ package com.company;
 
 import java.util.*;
 
-public class MyPokemon extends Pokemon  {
+public class MyPokemon  {
     public Pokemon[] pokemon;
-    public ArrayList<Pokemon> myPokemon = new ArrayList<>();
-    public ArrayList<Pokemon> removedPokemon = new ArrayList<>();
+    Pokemon yourChoose;
 
     Scanner scanner = new Scanner(System.in);
 

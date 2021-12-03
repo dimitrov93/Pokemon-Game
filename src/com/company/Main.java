@@ -16,6 +16,7 @@ public class Main {
         YourAttacks yourAttacks = new YourAttacks();
         EnemyAttacks enemyAttacks = new EnemyAttacks();
 
+
         printPokemonChars();
         menuOption();
         switchMenuOptions(trainer,battle,winner,yourTeam, enemyTeam, yourAttacks, enemyAttacks);
@@ -59,7 +60,12 @@ public class Main {
         enemyTeam.randomEnemyPokemonInBattle();
         enemyTeam.printEnemyPokemon();
         System.out.println();
-        battle.playTheGame(trainer,yourTeam, enemyTeam, yourAttacks, enemyAttacks);
+
+        System.out.println("The battle begins");
+        System.out.println("Choose pokemon to play with: ");
+        yourTeam.printOnlyNamesOnPokemonInMyTeam();
+                int choice=scanner.nextInt();
+        battle.playTheGame(trainer,yourTeam, enemyTeam, yourAttacks, enemyAttacks,choice);
         break;
             case 2 :winner.winnerReader();break;
             default: System.out.println("Have a great day!");

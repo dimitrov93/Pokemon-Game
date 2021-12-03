@@ -3,7 +3,8 @@ package com.company;
 import java.util.*;
 
 public class EnemyPokemon extends Pokemon{
-    Pokemon[] pokemon;
+   public Pokemon[] pokemon;
+   public Pokemon enemyChoose;
     ArrayList<Pokemon> enemyPokemonList = new ArrayList<>();
 
     public EnemyPokemon() {
@@ -18,7 +19,7 @@ public class EnemyPokemon extends Pokemon{
     }
 
 
-    private void typeCheckForSmallAndBig() {
+    private void typeCheckForSmallAndBig() {//да бъде отделен клас
         for (int i = 0; i < 5; i++) {
             if (pokemon[i].size.equals("Small")) {
                 pokemon[i].HP = (int) (pokemon[i].HP - (pokemon[i].HP * 0.2));
@@ -31,35 +32,4 @@ public class EnemyPokemon extends Pokemon{
             }
         }
     }
-//
-//    public ArrayList<Pokemon> randomEnemyPokemonInBattle() {
-//        Random rnd = new Random();
-//        ArrayList<Integer> randomCounts = new ArrayList<>();
-//        for (int i = 0; i < 3; i++) {
-//            int n = rnd.nextInt(5);
-//
-//            while (randomCounts.contains(n)) {
-//                n = rnd.nextInt(5);
-//            }
-//            randomCounts.add(n);
-//            enemyPokemonList.add(pokemon[n]);
-//        }
-//        return enemyPokemonList;
-//    }
-//
-//    public void printEnemyPokemon() {
-//        System.out.println("Enemy pokemons are:");
-//        for (int i = 0; i < 3; i++) {
-//            System.out.println(enemyPokemonList.get(i));
-//        }
-//
-//    }
-//
-//    public ArrayList<Pokemon> enemyChoosePokemon() {
-//        Collections.shuffle(enemyPokemonList);
-//        enemyChoose.add(0, enemyPokemonList.get(0));
-//        System.out.println(enemyChoose.get(0).name);
-//        enemyPokemonList.remove(0);
-//        return enemyChoose;
-//    }
 }

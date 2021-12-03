@@ -5,5 +5,5 @@ import java.util.ArrayList;
 public interface YourPokemons {
     ArrayList<Pokemon>choosePokemonInBattle(int n);
     void printMyPokemons();
-    ArrayList<Pokemon> youChooseOnePokemon();
+    Pokemon youChooseOnePokemon(int choice);
 }

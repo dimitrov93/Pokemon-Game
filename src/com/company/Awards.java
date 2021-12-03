@@ -3,12 +3,9 @@ package com.company;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Awards extends Pokemon {
+public class Awards extends MyPokemon{
     Scanner scanner = new Scanner(System.in);
     public int crystals;
-//    Awards(){
-//        this.crystals=0;
-//    }
 
     public  void pokemonRebirth(YourTeam yourTeam) {
         System.out.println("Do you want to resurrect a pokemon? ");
@@ -17,8 +14,8 @@ public class Awards extends Pokemon {
         int n = scanner.nextInt();
         switch (n) {
             case 1:
-                yourChoose =yourTeam.restorePokemon(yourTeam);
-                crystals = 0;
+                super.yourChoose =yourTeam.restorePokemon(yourTeam);
+                this.crystals = 0;
                 break;
             case 2:
                 System.out.println("Have a great day!");
@@ -29,7 +26,7 @@ public class Awards extends Pokemon {
         Random rand = new Random();
         // int randomCrystal = rand.nextInt(20) + 1;
          int randomCrystal=11;
-        crystals+=randomCrystal;
-        return randomCrystal;
+        this.crystals+=randomCrystal;
+        return this.crystals;
     }
 }

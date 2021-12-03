@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Random;
 
 public class EnemyTeam extends EnemyPokemon implements EnemyPokemons{
@@ -32,17 +33,18 @@ public class EnemyTeam extends EnemyPokemon implements EnemyPokemons{
     }
 
     @Override
-    public ArrayList<Pokemon> enemyChoosePokemon() {
+    public Pokemon enemyChoosePokemon() {
         Collections.shuffle(enemyPokemonList);
-        enemyChoose.add(0, enemyPokemonList.get(0));
-        System.out.println(enemyChoose.get(0).name);
+        enemyChoose=( enemyPokemonList.get(0));
+        System.out.println(enemyChoose.name);
         enemyPokemonList.remove(0);
         return enemyChoose;
     }
 
-    public  void enemyChoiceNewPokemonForBattle(Awards awards,EnemyTeam enemyTeam) {
+    public  Pokemon enemyChoiceNewPokemonForBattle(Awards awards) {
         System.out.print("Enemy player choose: ");
-        enemyChoose = enemyTeam.enemyChoosePokemon();
+        enemyChoose = enemyChoosePokemon();
         System.out.println("Crystals amount: " + awards.crystals);
+        return enemyChoose;
     }
 }
