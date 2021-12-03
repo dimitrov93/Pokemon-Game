@@ -5,6 +5,8 @@ import java.util.*;
 public class MyPokemon extends Pokemon  {
     public Pokemon[] pokemon;
     public ArrayList<Pokemon> myPokemon = new ArrayList<>();
+    public ArrayList<Pokemon> removedPokemon = new ArrayList<>();
+
     Scanner scanner = new Scanner(System.in);
 
     public MyPokemon() {

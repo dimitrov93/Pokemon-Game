@@ -24,7 +24,6 @@ public class Main {
     private static void printPokemonChars() {
         try {
             printPokemonText();
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -46,7 +45,7 @@ public class Main {
             case 1:
                 trainer.trainerName();
         System.out.println(trainer.trainerName + " - Welcome to the tournament!");
-        System.out.println("Select your pokemons:" + selectPokemons());
+        System.out.println("Select your Pokemons:" + selectPokemons());
         int count=0;
         while(count<3){
             byte selectedPokemon=scanner.nextByte();
@@ -62,8 +61,7 @@ public class Main {
         System.out.println();
         battle.playTheGame(trainer,yourTeam, enemyTeam, yourAttacks, enemyAttacks);
         break;
-            case 2 :winner.winnerReader();
-            break;
+            case 2 :winner.winnerReader();break;
             default: System.out.println("Have a great day!");
         }
     }

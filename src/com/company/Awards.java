@@ -17,7 +17,7 @@ public class Awards extends Pokemon {
         int n = scanner.nextInt();
         switch (n) {
             case 1:
-                //yourChoose =yourTeam.restorePokemon();
+                yourChoose =yourTeam.restorePokemon(yourTeam);
                 crystals = 0;
                 break;
             case 2:
@@ -26,9 +26,9 @@ public class Awards extends Pokemon {
         }
     }
     public  int crystalGenerator() {
-//        Random rand = new Random();
-//        int randomCrystal = rand.nextInt(20) + 1;
-        int randomCrystal=11;
+        Random rand = new Random();
+        // int randomCrystal = rand.nextInt(20) + 1;
+         int randomCrystal=11;
         crystals+=randomCrystal;
         return randomCrystal;
     }
