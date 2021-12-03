@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Battle extends Pokemon {
+    static String theWinner;
      ArrayList<Pokemon> yourChoose = new ArrayList<>();
      ArrayList<Pokemon> enemyChoose = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     Awards awards=new Awards();
     Winner winner=new Winner();
 
-    public void playTheGame(Trainer trainer,YourTeam yourTeam, EnemyTeam enemyTeam,
+    public void playTheGame(YourTeam yourTeam, EnemyTeam enemyTeam,
                             YourAttacks yourAttacks, EnemyAttacks enemyAttacks) {
+
         int roundCounter = 1;
         System.out.println("The battle begins");
         System.out.println("Choose pokemon to play with: ");
@@ -19,18 +21,19 @@ public class Battle extends Pokemon {
         System.out.print("Enemy player choose: ");
         enemyChoose = enemyTeam.enemyChoosePokemon();
         while (enemyTeam.enemyPokemonList.size() != 0 || yourTeam.myPokemon.size() != 0 || roundCounter <= 5) {
+            int healthBar = this.yourChoose.get(0).HP;
             System.out.println();
             System.out.println();
             if (roundCounter % 2 != 0) {
                 System.out.println("Round: " + roundCounter + " - Enemy attack!"+'\n');
                 enemyAttacks.AbilityChoice(yourChoose, enemyChoose);
                 if (yourChoose.get(0).HP <= 0) {
-                    yourTeam.yourPokemonDied(yourTeam);
+                    yourTeam.yourPokemonDied(healthBar);
                     if (yourTeam.myPokemon.size() <= 0 && awards.crystals < 10) {
                         break;
                     } else if (yourTeam.myPokemon.size() <= 0 && awards.crystals > 10) {
                         System.out.println("Crystals amount: " + awards.crystals);
-                        awards.pokemonRebirth(yourTeam);
+                        yourChoose=(awards.pokemonRebirth(yourTeam));
                     } else {
                         if (yourTeam.myPokemon.size() == 1) {
                             System.out.println("There is only one Pokemon left");
@@ -75,6 +78,20 @@ public class Battle extends Pokemon {
         }
 
         System.out.println();
-        winner.whoWins(yourTeam,trainer);
+        whoWins(yourTeam);
+        winner.winnerWriter(theWinner);
     }
+
+    public String whoWins(YourTeam yourTeam) {
+
+        if (yourTeam.myPokemon.size() <= 0) {
+            System.out.println("The enemy wins!");
+            theWinner = "The enemy";
+        } else {
+            System.out.println(yourTeam.trainerName + " you win!");
+            theWinner = yourTeam.trainerName;
+        }
+        return theWinner;
+    }
+
 }

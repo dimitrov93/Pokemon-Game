@@ -8,7 +8,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        Trainer trainer=new Trainer();
+
         Battle battle=new Battle();
         Winner winner=new Winner();
         YourTeam yourTeam=new YourTeam();
@@ -18,7 +18,7 @@ public class Main {
 
         printPokemonChars();
         menuOption();
-        switchMenuOptions(trainer,battle,winner,yourTeam, enemyTeam, yourAttacks, enemyAttacks);
+        switchMenuOptions(battle,winner,yourTeam, enemyTeam, yourAttacks, enemyAttacks);
     }
 
     private static void printPokemonChars() {
@@ -37,15 +37,15 @@ public class Main {
         System.out.print("Please, select an option from the menu: " + "\n");
     }
 
-    public static void switchMenuOptions(Trainer trainer,Battle battle,Winner winner,YourTeam yourTeam
+    public static void switchMenuOptions(Battle battle,Winner winner,YourTeam yourTeam
             ,EnemyTeam enemyTeam, YourAttacks yourAttacks, EnemyAttacks enemyAttacks) {
         Scanner scanner = new Scanner(System.in);
 
         byte userOption = scanner.nextByte();
         switch (userOption) {
             case 1:
-                trainer.trainerName();
-        System.out.println(trainer.trainerName + " - Welcome to the tournament!");
+                yourTeam.trainerName();
+        System.out.println(yourTeam.trainerName + " - Welcome to the tournament!");
         System.out.println("Select your pokemons:" + selectPokemons());
         int count=0;
         while(count<3){
@@ -60,7 +60,7 @@ public class Main {
         enemyTeam.randomEnemyPokemonInBattle();
         enemyTeam.printEnemyPokemon();
         System.out.println();
-        battle.playTheGame(trainer,yourTeam, enemyTeam, yourAttacks, enemyAttacks);
+        battle.playTheGame(yourTeam, enemyTeam, yourAttacks, enemyAttacks);
         break;
             case 2 :winner.winnerReader();
             break;

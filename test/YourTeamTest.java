@@ -21,4 +21,13 @@ public class YourTeamTest extends YourTeam {
         Assert.assertEquals(msg,expected,actual);
     }
 
+    @Test
+    public void testTrainerName(){
+        YourTeam trainerName = new YourTeam();
+        String input="trainer";
+        InputStream in=new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        Assert.assertEquals("Error","trainer",trainerName.trainerName());
+    }
+
 }

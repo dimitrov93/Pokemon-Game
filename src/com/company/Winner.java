@@ -8,18 +8,7 @@ import java.util.Scanner;
 public class Winner{
     String winner;
 
-    public void whoWins(YourTeam yourTeam,Trainer trainer) {
 
-        if (yourTeam.myPokemon.size() <= 0) {
-            System.out.println("The enemy wins!");
-            this.winner = "The enemy";
-        } else {
-            System.out.println(trainer.trainerName + " you win!");
-            this.winner = trainer.trainerName;
-        }
-
-        winnerWriter(winner);
-    }
 
     public StringBuilder winnerWriter(String winner) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");//:ss");
