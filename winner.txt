@@ -1,0 +1,118 @@
+2021/11/19 17:15:57 --- The winner is: Tsvetomir
+2021/11/19 17:16:45 --- The winner is: Tsvetomir
+2021/11/19 17:17:34 --- The winner is: The enemy
+2021/11/19 18:19:42 --- The winner is: Ceko
+2021/11/19 23:19:55 --- The winner is: Joe
+2021/11/21 23:42:58 --- The winner is: Ceko
+2021/11/21 23:46:18 --- The winner is: Proba
+2021/11/21 23:47:12 --- The winner is: The enemy
+2021/11/21 23:50:37 --- The winner is: The enemy
+2021/11/21 23:54:58 --- The winner is: Tseko
+2021/11/22 00:05:23 --- The winner is: as
+2021/11/22 00:33:27 --- The winner is: Ceko
+2021/11/22 00:45:38 --- The winner is: Proba
+2021/11/22 18:27:16 --- The winner is: The enemy
+2021/11/22 18:34:39 --- The winner is: Ts
+2021/11/22 23:44:37 --- The winner is: Tsvetomir
+2021/11/22 23:53:01 --- The winner is: Tsvetomir
+2021/11/22 23:53:50 --- The winner is: ts
+2021/11/23 00:00:22 --- The winner is: Tsv
+2021/11/23 00:02:03 --- The winner is: ts
+2021/11/23 00:04:11 --- The winner is: ts
+2021/11/23 00:07:48 --- The winner is: ts
+2021/11/23 00:11:45 --- The winner is: The enemy
+2021/11/23 00:13:48 --- The winner is: Ts
+2021/11/23 00:16:35 --- The winner is: Ts
+2021/11/23 00:17:08 --- The winner is: The enemy
+2021/11/23 00:18:47 --- The winner is: The enemy
+2021/11/23 00:19:25 --- The winner is: ts
+2021/11/23 01:11:41 --- The winner is: Ts
+2021/11/23 02:01:58 --- The winner is: ts
+2021/11/23 02:27:50 --- The winner is: Ts
+2021/11/23 02:30:00 --- The winner is: Ts
+2021/11/23 02:30:51 --- The winner is: ts
+2021/11/23 02:31:18 --- The winner is: ts
+2021/11/23 02:32:31 --- The winner is: ts
+2021/11/23 02:32:55 --- The winner is: ts
+2021/11/23 02:33:55 --- The winner is: ts
+2021/11/23 02:37:17 --- The winner is: ts
+2021/11/23 02:42:58 --- The winner is: ts
+2021/11/23 02:45:46 --- The winner is: Ts
+2021/11/23 14:22:33 --- The winner is: st
+2021/11/23 15:47:28 --- The winner is: st
+2021/11/23 15:59:38 --- The winner is: st
+2021/11/23 16:19:08 --- The winner is: staso
+2021/11/23 16:21:36 --- The winner is: ad
+2021/11/23 20:44:41 --- The winner is: s
+2021/11/23 20:53:46 --- The winner is: s
+2021/11/23 22:46:53 --- The winner is: stasi
+2021/11/25 13:17:36 --- The winner is: stasi
+2021/11/25 13:21:15 --- The winner is: The enemy
+2021/11/25 13:56:45 --- The winner is: sta
+2021/11/25 13:57:35 --- The winner is: stas
+2021/11/25 13:59:15 --- The winner is: st
+2021/11/25 14:03:04 --- The winner is: The enemy
+2021/11/25 14:14:18 --- The winner is: The enemy
+2021/11/25 14:21:15 --- The winner is: The enemy
+2021/11/25 14:23:28 --- The winner is: ars
+2021/11/25 15:47:17 --- The winner is: staso
+2021/11/25 16:43:32 --- The winner is: stasi
+2021/11/25 16:50:14 --- The winner is: The enemy
+2021/11/25 16:50:54 --- The winner is: sta
+2021/11/25 16:52:15 --- The winner is: The enemy
+2021/11/25 16:53:19 --- The winner is: The enemy
+2021/11/30 11:38:34 --- The winner is: stasi
+2021/11/30 16:44:16 --- The winner is: null
+2021/11/30 16:54:33 --- The winner is: The enemy
+2021/11/30 17:08:47 --- The winner is: The enemy
+2021/11/30 17:20:49 --- The winner is: The enemy
+2021/11/30 17:41:30 --- The winner is: The enemy
+2021/11/30 17:43:46 --- The winner is: The enemy
+2021/11/30 17:48:48 --- The winner is: The enemy
+2021/11/30 17:49:58 --- The winner is: The enemy
+2021/11/30 17:54:46 --- The winner is: The enemy
+2021/11/30 17:55:31 --- The winner is: The enemy
+2021/11/30 17:56:24 --- The winner is: The enemy
+2021/11/30 17:57:17 --- The winner is: The enemy
+2021/11/30 18:18:13 --- The winner is: The enemy
+2021/11/30 18:18:37 --- The winner is: The enemy
+2021/11/30 20:37:41 --- The winner is: The enemy
+2021/11/30 20:39:27 --- The winner is: The enemy
+2021/11/30 20:40:15 --- The winner is: The enemy
+2021/11/30 20:44:50 --- The winner is: The enemy
+2021/11/30 20:47:44 --- The winner is: null
+2021/12/01 12:29:40 --- The winner is: null
+2021/12/01 12:59:43 --- The winner is: st
+2021/12/01 13:01:52 --- The winner is: null
+2021/12/01 13:05:28 --- The winner is: null
+2021/12/01 13:07:54 --- The winner is: st
+2021/12/01 13:11:03 --- The winner is: The enemy
+2021/12/01 13:12:06 --- The winner is: The enemy
+2021/12/01 23:57:44 --- The winner is: ivan
+2021/12/01 23:58:59 --- The winner is: ivan
+2021/12/02 00:01:29 --- The winner is: ivan
+2021/12/02 00:04 --- The winner is: ivan
+2021/12/02 00:04 --- The winner is: ivan
+2021/12/02 00:05 --- The winner is: ivan
+2021/12/02 20:41 --- The winner is: sta
+2021/12/03 21:46 --- The winner is: The enemy
+2021/12/03 21:58 --- The winner is: The enemy
+2021/12/03 22:22 --- The winner is: stasi
+2021/12/03 22:28 --- The winner is: The enemy
+2021/12/03 22:45 --- The winner is: Ceko
+2021/12/03 22:46 --- The winner is: sa
+2021/12/03 22:48 --- The winner is: asd
+2021/12/03 22:58 --- The winner is: CEko
+2021/12/03 23:05 --- The winner is: Da
+2021/12/03 23:18 --- The winner is: asd
+2021/12/03 23:19 --- The winner is: asdad
+2021/12/03 23:35 --- The winner is: sad
+2021/12/03 23:36 --- The winner is: asd
+2021/12/03 23:37 --- The winner is: asdsa
+2021/12/03 23:38 --- The winner is: asdas
+2021/12/03 23:39 --- The winner is: sad
+2021/12/04 01:16 --- The winner is: dasfs
+2021/12/04 01:18 --- The winner is: FDas
+2021/12/04 01:19 --- The winner is: dasfasd
+2021/12/04 01:21 --- The winner is: dasgasdg
+2021/12/04 03:04 --- The winner is: asd
