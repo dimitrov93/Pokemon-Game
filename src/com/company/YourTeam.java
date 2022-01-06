@@ -4,15 +4,26 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class YourTeam extends MyPokemon implements YourPokemons {
+    private String trainerName;
+    public ArrayList<Pokemon> yourChoose = new ArrayList<>();//това от Pokemon го преместих тук
+    public ArrayList<Pokemon> myPokemon = new ArrayList<>();//това от MyPokemon го преместих тук
+    public ArrayList<Pokemon> removedPokemon = new ArrayList<>();
 
+    Scanner scanner=new Scanner(System.in);
 
-    String trainerName;
+    public String getTrainerName(){
+        return trainerName;
+    }
+
+    public void setTrainerName(String trainerName){
+        this.trainerName=trainerName;
+    }
 
     public String trainerName() {
         Scanner in = new Scanner(System.in);
         System.out.print("Trainer, enter your name: ");
-        this.trainerName = in.next();
-        return trainerName;
+        setTrainerName(in.next());
+        return getTrainerName();
     }
 
     @Override
@@ -24,7 +35,7 @@ public class YourTeam extends MyPokemon implements YourPokemons {
 
     public ArrayList<Pokemon> restorePokemon(YourTeam yourTeam) {
         for (int i = 0; i < removedPokemon.size(); i++) {
-            System.out.println((i + 1) + ":" + removedPokemon.get(i).name);
+            System.out.println((i + 1) + ":" + removedPokemon.get(i).getName());
         }
         int choice = scanner.nextInt();
 
@@ -36,7 +47,7 @@ public class YourTeam extends MyPokemon implements YourPokemons {
                 yourTeam.myPokemon.add(removedPokemon.get(1));
                 break;
             case 3:
-                yourTeam.myPokemon.add(removedPokemon.get(1));
+                yourTeam.myPokemon.add(removedPokemon.get(2));
                 break;
         }
         return this.yourChoose;
@@ -54,22 +65,22 @@ public class YourTeam extends MyPokemon implements YourPokemons {
     @Override
     public ArrayList<Pokemon> youChooseOnePokemon() {
         for (int i = 0; i < myPokemon.size(); i++) {
-            System.out.println((i + 1) + ":" + myPokemon.get(i).name);
+            System.out.println((i + 1) + ":" + myPokemon.get(i).getName());
         }
         int choice = scanner.nextInt();
 
         switch (choice) {
             case 1:
                 yourChoose.add(0, myPokemon.get(0));
-                System.out.println("Your Pokemon is: " + yourChoose.get(0).name);
+                System.out.println("Your Pokemon is: " + yourChoose.get(0).getName());
                 break;
             case 2:
                 yourChoose.add(0, myPokemon.get(1));
-                System.out.println("Your Pokemon is: " + yourChoose.get(0).name);
+                System.out.println("Your Pokemon is: " + yourChoose.get(0).getName());
                 break;
             case 3:
                 yourChoose.add(0, myPokemon.get(2));
-                System.out.println("Your Pokemon is: " + yourChoose.get(0).name);
+                System.out.println("Your Pokemon is: " + yourChoose.get(0).getName());
                 break;
         }
         return yourChoose;
@@ -83,8 +94,8 @@ public class YourTeam extends MyPokemon implements YourPokemons {
     }
 
     public void yourPokemonDied(YourTeam yourTeam, int healthBar) {
-        System.out.println(yourTeam.yourChoose.get(0).name + " is dead");
-        yourChoose.get(0).HP = healthBar;
+        System.out.println(yourTeam.yourChoose.get(0).getName() + " is dead");
+        yourChoose.get(0).setHealthPoints(healthBar);
         yourTeam.removedPokemon.add(yourChoose.get(0));
         yourTeam.myPokemon.remove(yourChoose.get(0));
         yourChoose.remove(0);

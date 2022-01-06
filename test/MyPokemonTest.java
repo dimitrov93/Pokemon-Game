@@ -10,7 +10,7 @@ public class MyPokemonTest {
         this.pokemon = new Pokemon[1];
         pokemon[0] = new Pokemon("Pikachu", "Electric", "Medium", 35, 55, 40);
         String expected = "Pikachu";
-        String actual = pokemon[0].name;
+        String actual = pokemon[0].getName();
         String msg = "Something is wrong with the name of the pokemon!";
         Assert.assertEquals(msg,actual,expected);
     }
@@ -20,7 +20,7 @@ public class MyPokemonTest {
         this.pokemon = new Pokemon[1];
         pokemon[0] = new Pokemon("Pikachu", "Electric", "Medium", 35, 55, 40);
         int expected = 55;
-        int actual = pokemon[0].AP;
+        int actual = pokemon[0].getAttackPower();
         String msg = "Something is wrong with the AP of the pokemon!";
         Assert.assertEquals(msg,actual,expected);
     }
@@ -31,7 +31,7 @@ public class MyPokemonTest {
         pokemon[0] = new Pokemon("Charizard", "Flame", "Big", 78, 84,78 );
         addingExtraType();
         int expected = 100;
-        int actual = pokemon[0].AP;
+        int actual = pokemon[0].getAttackPower();
         String msg = "Something is wrong with the AP of the pokemon!";
         Assert.assertEquals(msg,actual,expected);
     }
@@ -41,8 +41,8 @@ public class MyPokemonTest {
         this.pokemon = new Pokemon[1];
         pokemon[0] = new Pokemon("Charizard", "Flame", "Big", 78, 84,78 );
         int expected = 78;
-        int actual = pokemon[0].HP;
-        String msg = "Something is wrong with the AP of the pokemon!";
+        int actual = pokemon[0].getHealthPoints();
+        String msg = "Something is wrong with the HP of the pokemon!";
         Assert.assertEquals(msg,actual,expected);
     }
 
@@ -52,8 +52,8 @@ public class MyPokemonTest {
         pokemon[0] = new Pokemon("Charizard", "Flame", "Big", 78, 84,78 );
         addingExtraType();
         int expected = 93;
-        int actual = pokemon[0].HP;
-        String msg = "Something is wrong with the AP of the pokemon!";
+        int actual = pokemon[0].getHealthPoints();
+        String msg = "Something is wrong with the HP of the pokemon!";
         Assert.assertEquals(msg,actual,expected);
     }
 
@@ -63,8 +63,8 @@ public class MyPokemonTest {
         this.pokemon = new Pokemon[1];
         pokemon[0] = new Pokemon("Crobat", "Flying", "Small", 85, 90, 85);
         int expected = 85;
-        int actual = pokemon[0].HP;
-        String msg = "Something is wrong with the AP of the pokemon!";
+        int actual = pokemon[0].getHealthPoints();
+        String msg = "Something is wrong with the HP of the pokemon!";
         Assert.assertEquals(msg,actual,expected);
     }
 
@@ -74,8 +74,8 @@ public class MyPokemonTest {
         pokemon[0] = new Pokemon("Crobat", "Flying", "Small", 85, 90, 85);
         addingExtraType();
         int expected = 68;
-        int actual = pokemon[0].HP;
-        String msg = "Something is wrong with the AP of the pokemon!";
+        int actual = pokemon[0].getHealthPoints();
+        String msg = "Something is wrong with the HP of the pokemon!";
         Assert.assertEquals(msg,actual,expected);
     }
 
@@ -90,22 +90,22 @@ public class MyPokemonTest {
 
         addingExtraType();
 
-        String expected = "name:Fearow; type:Flying; size:Medium; HP:65; AP:90; DP:65";
+        String expected = "name:Fearow; type:Flying; size:Medium; healthPoints:65; attackPower:90; defense:65";
         Pokemon actual = pokemon[4];
         String msg = "Something went wrong with the printing";
         Assert.assertEquals(msg,expected,actual.toString());
     }
 
     private void addingExtraType() {
-        for (int i = 0; i < pokemon.length; i++) {
-            if (pokemon[i].size.equals("Small")) {
-                pokemon[i].HP = (int) (pokemon[i].HP - (pokemon[i].HP * 0.2));
-                pokemon[i].AP = (int) (pokemon[i].AP - (pokemon[i].AP * 0.2));
-                pokemon[i].DP = (int) (pokemon[i].DP - (pokemon[i].DP * 0.2));
-            } else if (pokemon[i].size.equals("Big")) {
-                pokemon[i].HP = (int) (pokemon[i].HP + (pokemon[i].HP * 0.2));
-                pokemon[i].AP = (int) (pokemon[i].AP + (pokemon[i].AP * 0.2));
-                pokemon[i].DP = (int) (pokemon[i].DP + (pokemon[i].DP * 0.2));
+        for (int i = 0; i < 1; i++) {
+            if (pokemon[i].getSize().equals("Small")) {
+                pokemon[i].setHealthPoints((int) (pokemon[i].getHealthPoints() - (pokemon[i].getHealthPoints() * 0.2)));
+                pokemon[i].setAttackPower((int) (pokemon[i].getAttackPower() - (pokemon[i].getAttackPower() * 0.2)));
+                pokemon[i].setDefense((int) (pokemon[i].getDefense() - (pokemon[i].getDefense() * 0.2)));
+            } else if (pokemon[i].getSize().equals("Big")) {
+                pokemon[i].setHealthPoints((int) (pokemon[i].getHealthPoints() + (pokemon[i].getHealthPoints() * 0.2)));
+                pokemon[i].setAttackPower((int) (pokemon[i].getAttackPower() + (pokemon[i].getAttackPower() * 0.2)));
+                pokemon[i].setDefense( (int) (pokemon[i].getDefense() + (pokemon[i].getDefense() * 0.2)));
             }
         }
     }

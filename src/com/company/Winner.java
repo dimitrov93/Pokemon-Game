@@ -6,9 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Winner{
-    String winner;
-
-
 
     public StringBuilder winnerWriter(String winner) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");//:ss");

@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Random;
 
 public class EnemyTeam extends EnemyPokemon implements EnemyPokemons {
+    public ArrayList<Pokemon> enemyChoose = new ArrayList<>();//това от Pokemon го преместих тук
+    public ArrayList<Pokemon> enemyPokemonList = new ArrayList<>();//това от EnemyPokemon го преместих тук
 
     @Override
     public ArrayList<Pokemon> randomEnemyPokemonInBattle() {
@@ -35,7 +37,7 @@ public class EnemyTeam extends EnemyPokemon implements EnemyPokemons {
     public ArrayList<Pokemon> enemyChoosePokemon() {
         Collections.shuffle(enemyPokemonList);
         enemyChoose.add(0, enemyPokemonList.get(0));
-        System.out.println(enemyChoose.get(0).name);
+        System.out.println(enemyChoose.get(0).getName());
         enemyPokemonList.remove(0);
         return enemyChoose;
     }
@@ -43,6 +45,6 @@ public class EnemyTeam extends EnemyPokemon implements EnemyPokemons {
     public void enemyChoiceNewPokemonForBattle(Awards awards, EnemyTeam enemyTeam) {
         System.out.print("Enemy player choose: ");
         enemyChoose = enemyTeam.enemyChoosePokemon();
-        System.out.println("Crystals amount: " + awards.crystals);
+        System.out.println("Crystals amount: " + awards.getCrystal());
     }
 }

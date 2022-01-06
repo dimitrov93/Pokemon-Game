@@ -1,24 +1,68 @@
 package com.company;
 
-import java.util.ArrayList;
-
 public class Pokemon {
-    public String name;
-    public String type;
-    public String size;
-    public int HP; // health points
-    public int AP; // attack power
-    public int DP; // defense
-    public ArrayList<Pokemon> yourChoose = new ArrayList<>();
-    public ArrayList<Pokemon> enemyChoose = new ArrayList<>();
+    private String name;
+    private String type;
+    private String size;
+    private int healthPoints;
+    private int attackPower;
+    private int defense;
 
-    public Pokemon(String name, String type, String size, int HP, int AP, int DP) {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
         this.type = type;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
         this.size = size;
-        this.HP = HP;
-        this.AP = AP;
-        this.DP = DP;
+    }
+
+    public int getHealthPoints(){
+        return healthPoints;
+    }
+
+    public void setHealthPoints(int healthPoints){
+        this.healthPoints=healthPoints;
+    }
+
+    public int getAttackPower() {
+        return attackPower;
+    }
+
+    public void setAttackPower(int attackPower){
+        this.attackPower=attackPower;
+    }
+
+    public int getDefense() {
+        return defense;
+    }
+
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
+    public Pokemon(String name, String type, String size, int healthPoints, int attackPower, int defense) {
+        setName(name);
+        setType(type);
+        setSize(size);
+        setHealthPoints(healthPoints);
+        setAttackPower(attackPower);
+        setDefense(defense);
     }
 
     public Pokemon() {
@@ -28,8 +72,9 @@ public class Pokemon {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        result.append("name:" + this.name + "; type:" + this.type + "; size:" + this.size +
-                "; HP:" + this.HP + "; AP:" + this.AP + "; DP:" + this.DP);
+        result.append("name:" + getName() + "; type:" + getType() + "; size:" + getSize() +
+                "; healthPoints:" +getHealthPoints() + "; attackPower:" + getAttackPower() +
+                "; defense:" + getDefense());
         return result.toString();
     }
 
