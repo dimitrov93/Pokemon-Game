@@ -2,10 +2,8 @@ package com.company;
 
 import java.util.*;
 
-public class EnemyPokemon extends Pokemon {
-    Pokemon[] pokemon;
-    ArrayList<Pokemon> enemyPokemonList = new ArrayList<>();
-
+public class EnemyPokemon{
+    protected Pokemon[] pokemon;
     public EnemyPokemon() {
         this.pokemon = new Pokemon[5];
         pokemon[0] = new Pokemon("Bulbasaur", "Grass", "Medium", 45, 56, 49);
@@ -20,46 +18,15 @@ public class EnemyPokemon extends Pokemon {
 
     private void typeCheckForSmallAndBig() {
         for (int i = 0; i < 5; i++) {
-            if (pokemon[i].size.equals("Small")) {
-                pokemon[i].HP = (int) (pokemon[i].HP - (pokemon[i].HP * 0.2));
-                pokemon[i].AP = (int) (pokemon[i].AP - (pokemon[i].AP * 0.2));
-                pokemon[i].DP = (int) (pokemon[i].DP - (pokemon[i].DP * 0.2));
-            } else if (pokemon[i].size.equals("Big")) {
-                pokemon[i].HP = (int) (pokemon[i].HP + (pokemon[i].HP * 0.2));
-                pokemon[i].AP = (int) (pokemon[i].AP + (pokemon[i].AP * 0.2));
-                pokemon[i].DP = (int) (pokemon[i].DP + (pokemon[i].DP * 0.2));
+            if (pokemon[i].getSize().equals("Small")) {
+                pokemon[i].setHealthPoints((int) (pokemon[i].getHealthPoints() - (pokemon[i].getHealthPoints() * 0.2)));
+                pokemon[i].setAttackPower((int) (pokemon[i].getAttackPower() - (pokemon[i].getAttackPower() * 0.2)));
+                pokemon[i].setDefense((int) (pokemon[i].getDefense() - (pokemon[i].getDefense() * 0.2)));
+            } else if (pokemon[i].getSize().equals("Big")) {
+                pokemon[i].setHealthPoints((int) (pokemon[i].getHealthPoints() + (pokemon[i].getHealthPoints() * 0.2)));
+                pokemon[i].setAttackPower((int) (pokemon[i].getAttackPower() + (pokemon[i].getAttackPower() * 0.2)));
+                pokemon[i].setDefense( (int) (pokemon[i].getDefense() + (pokemon[i].getDefense() * 0.2)));
             }
         }
     }
-//
-//    public ArrayList<Pokemon> randomEnemyPokemonInBattle() {
-//        Random rnd = new Random();
-//        ArrayList<Integer> randomCounts = new ArrayList<>();
-//        for (int i = 0; i < 3; i++) {
-//            int n = rnd.nextInt(5);
-//
-//            while (randomCounts.contains(n)) {
-//                n = rnd.nextInt(5);
-//            }
-//            randomCounts.add(n);
-//            enemyPokemonList.add(pokemon[n]);
-//        }
-//        return enemyPokemonList;
-//    }
-//
-//    public void printEnemyPokemon() {
-//        System.out.println("Enemy pokemons are:");
-//        for (int i = 0; i < 3; i++) {
-//            System.out.println(enemyPokemonList.get(i));
-//        }
-//
-//    }
-//
-//    public ArrayList<Pokemon> enemyChoosePokemon() {
-//        Collections.shuffle(enemyPokemonList);
-//        enemyChoose.add(0, enemyPokemonList.get(0));
-//        System.out.println(enemyChoose.get(0).name);
-//        enemyPokemonList.remove(0);
-//        return enemyChoose;
-//    }
 }

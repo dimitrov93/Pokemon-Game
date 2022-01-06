@@ -45,7 +45,7 @@ public class Main {
         switch (userOption) {
             case 1:
                 yourTeam.trainerName();
-                System.out.println(yourTeam.trainerName + " - Welcome to the tournament!");
+                System.out.println(yourTeam.getTrainerName() + " - Welcome to the tournament!");
                 System.out.println("Select your pokemons:" + selectPokemons());
                 int count = 0;
                 while (count < 3) {
