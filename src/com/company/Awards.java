@@ -16,23 +16,24 @@ public class Awards {
         this.crystals=newCrystals;
     }
 
-    public ArrayList<Pokemon> pokemonRebirth(YourTeam yourTeam) {
-
+    public boolean pokemonRebirth(YourTeam yourTeam) {
+        boolean flag=true;
         System.out.println("Do you want to resurrect a pokemon? ");
         System.out.println("1-Yes");
         System.out.println("2-No");
         int n = scanner.nextInt();
         switch (n) {
             case 1:
-                yourTeam.yourChoose = yourTeam.restorePokemon(yourTeam);
+                yourTeam.restorePokemon();
                 int declineCrystal=getCrystal()-11;
                 setCrystals(declineCrystal);
                 break;
             case 2:
-                System.out.println("Good luck!");
+                System.out.println("You didn't want to resurrect a pokemon");
+                flag=false;
                 break;
         }
-        return yourTeam.yourChoose;
+        return flag;
     }
 
     public int crystalGenerator() {

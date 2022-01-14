@@ -7,5 +7,5 @@ public interface YourPokemons {
 
     void printMyPokemons();
 
-    ArrayList<Pokemon> youChooseOnePokemon();
+    Pokemon youChooseOnePokemon();
 }

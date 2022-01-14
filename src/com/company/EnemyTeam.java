@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.Random;
 
 public class EnemyTeam extends EnemyPokemon implements EnemyPokemons {
-    public ArrayList<Pokemon> enemyChoose = new ArrayList<>();//това от Pokemon го преместих тук
-    public ArrayList<Pokemon> enemyPokemonList = new ArrayList<>();//това от EnemyPokemon го преместих тук
+    public Pokemon enemyChoose;
+    public ArrayList<Pokemon> enemyPokemonList = new ArrayList<>();
 
     @Override
     public ArrayList<Pokemon> randomEnemyPokemonInBattle() {
@@ -19,7 +19,7 @@ public class EnemyTeam extends EnemyPokemon implements EnemyPokemons {
                 n = rnd.nextInt(5);
             }
             randomCounts.add(n);
-            enemyPokemonList.add(pokemon[n]);
+            this.enemyPokemonList.add(pokemon[n]);
         }
         return enemyPokemonList;
     }
@@ -28,23 +28,23 @@ public class EnemyTeam extends EnemyPokemon implements EnemyPokemons {
     public void printEnemyPokemon() {
         System.out.println("Enemy pokemons are:");
         for (int i = 0; i < 3; i++) {
-            System.out.println(enemyPokemonList.get(i));
+            System.out.println(this.enemyPokemonList.get(i));
         }
 
     }
 
     @Override
-    public ArrayList<Pokemon> enemyChoosePokemon() {
-        Collections.shuffle(enemyPokemonList);
-        enemyChoose.add(0, enemyPokemonList.get(0));
-        System.out.println(enemyChoose.get(0).getName());
+    public Pokemon enemyChoosePokemon() {
+        Collections.shuffle(this.enemyPokemonList);
+        this.enemyChoose=this.enemyPokemonList.get(0);
+        System.out.println(enemyChoose.getName());
         enemyPokemonList.remove(0);
         return enemyChoose;
     }
 
     public void enemyChoiceNewPokemonForBattle(Awards awards, EnemyTeam enemyTeam) {
         System.out.print("Enemy player choose: ");
-        enemyChoose = enemyTeam.enemyChoosePokemon();
+        this.enemyChoose = enemyTeam.enemyChoosePokemon();
         System.out.println("Crystals amount: " + awards.getCrystal());
     }
 }

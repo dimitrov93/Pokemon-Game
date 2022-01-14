@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Winner{
 
     public StringBuilder winnerWriter(String winner) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");//:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
         LocalDateTime now = LocalDateTime.now();
         File date = new File("winner.txt");
         StringBuilder writeWinner=new StringBuilder();

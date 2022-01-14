@@ -6,49 +6,48 @@ import java.util.Random;
 public class EnemyAttacks extends Pokemon implements EnemyAbility {
     Random rnd = new Random();
 
-    private int attackHelper(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon, int attackStrength) {
-        System.out.println(yourPokemon.get(0).getName() + "'s health: " + yourPokemon.get(0).getHealthPoints());
-        int defence = (int) (yourPokemon.get(0).getDefense() * 0.6);
-        System.out.println("Enemy attack power: " + enemyPokemon.get(0).getAttackPower());
-        int healthPointsAfterAttack= (yourPokemon.get(0).getHealthPoints() + defence) -
-                (enemyPokemon.get(0).getAttackPower() + attackStrength);
-        yourPokemon.get(0).setHealthPoints(healthPointsAfterAttack);
-        System.out.println(yourPokemon.get(0).getName() + " hp: " + yourPokemon.get(0).getHealthPoints());
+    private int attackHelper(Pokemon yourPokemon, Pokemon enemyPokemon, int attackStrength) {
+        System.out.println(yourPokemon.getName() + "'s health: " + yourPokemon.getHealthPoints());
+        int defence = (int) (yourPokemon.getDefensePoints() * 0.6);
+        System.out.println("Enemy attack power: " + enemyPokemon.getAttackPower());
+        int healthPointsAfterAttack= (yourPokemon.getHealthPoints() + defence) -
+                (enemyPokemon.getAttackPower() + attackStrength);
+        yourPokemon.setHealthPoints(healthPointsAfterAttack);
+        System.out.println(yourPokemon.getName() + " hp: " + yourPokemon.getHealthPoints());
         System.out.println();
-        return yourPokemon.get(0).getHealthPoints();
+        return yourPokemon.getHealthPoints();
     }
 
     @Override
-    public int pcAttackingYouWithLowAbility(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
-        System.out.println(enemyPokemon.get(0).getName() + " attacking you with LOW ability");
+    public int pcAttackingYouWithLowAbility(Pokemon yourPokemon, Pokemon enemyPokemon) {
+        System.out.println(enemyPokemon.getName() + " attacking you with LOW ability");
         return attackHelper(yourPokemon, enemyPokemon, 0);
     }
 
     @Override
-    public int pcAttackingYouWithMediumAbility(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
-        System.out.println(enemyPokemon.get(0).getName() + " attacking you with MEDIUM ability");
+    public int pcAttackingYouWithMediumAbility(Pokemon yourPokemon,Pokemon enemyPokemon) {
+        System.out.println(enemyPokemon.getName() + " attacking you with MEDIUM ability");
         return attackHelper(yourPokemon, enemyPokemon, 5);
     }
 
     @Override
-    public int pcAttackingYouWithHighAbility(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
-        System.out.println(enemyPokemon.get(0).getName() + " attacking you with HIGH ability");
+    public int pcAttackingYouWithHighAbility(Pokemon yourPokemon, Pokemon enemyPokemon) {
+        System.out.println(enemyPokemon.getName() + " attacking you with HIGH ability");
         return attackHelper(yourPokemon, enemyPokemon, 10);
     }
 
     @Override
-    public int pcUseShield(ArrayList<Pokemon> enemyPokemon) {
+    public int pcUseShield(Pokemon enemyPokemon) {
         System.out.println("Enemy used shield. Enemy defence power increase with 5 points");
-        int currentDefense=enemyPokemon.get(0).getDefense();
+        int currentDefense=enemyPokemon.getDefensePoints();
         currentDefense+=5;
-        enemyPokemon.get(0).setDefense(currentDefense);
-        System.out.println(enemyPokemon.get(0).getName() + "'s defence power after shield is used: " + enemyPokemon.get(0).getDefense());
+        enemyPokemon.setDefensePoints(currentDefense);
+        System.out.println(enemyPokemon.getName() + "'s defence power after shield is used: " + enemyPokemon.getDefensePoints());
         System.out.println();
-        return enemyPokemon.get(0).getDefense();
+        return enemyPokemon.getDefensePoints();
     }
 
-
-    public void AbilityChoice(ArrayList<Pokemon> yourPokemon, ArrayList<Pokemon> enemyPokemon) {
+    public void AbilityChoice(Pokemon yourPokemon, Pokemon enemyPokemon) {
         int n = rnd.nextInt(4) + 1;
 
         switch (n) {

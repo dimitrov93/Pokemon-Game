@@ -84,3 +84,4 @@ public class Main {
         return " 1.Pikachu 2.Squirtle 3.Charizard 4.Crobat 5.Fearow";
     }
 }
+

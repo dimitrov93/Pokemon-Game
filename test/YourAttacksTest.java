@@ -7,50 +7,50 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class YourAttacksTest {
-    public Pokemon[]yourChoice;
-    public Pokemon[]enemyChoice;
+    public Pokemon[]yourPokemon;
+    public Pokemon[]enemyPokemon;
     @Test
     public void testYouAttackingPcWithLowAbility(){
         YourAttacks yourAttacks=new YourAttacks();
-        this.yourChoice=new Pokemon[1];
-        this.enemyChoice=new Pokemon[1];
-        yourChoice[0]=new Pokemon("Pikachu", "Electric", "Medium", 35, 55, 40);
-        enemyChoice[0]=new Pokemon("Bulbasaur", "Grass", "Medium", 45, 56, 49);
-        ArrayList<Pokemon> yourChoice1=new ArrayList<>(Arrays.asList(yourChoice)) ;
-        ArrayList<Pokemon> enemyChoice1=new ArrayList<>(Arrays.asList(enemyChoice)) ;
-        Assert.assertEquals("Wrong HP!",19,yourAttacks.youAttackingPcWithLowAbility(yourChoice1,enemyChoice1));
+        this.yourPokemon=new Pokemon[1];
+        this.enemyPokemon=new Pokemon[1];
+        yourPokemon[0]=new Pokemon("Pikachu", "Electric", "Medium", 35, 55, 40);
+        enemyPokemon[0]=new Pokemon("Bulbasaur", "Grass", "Medium", 45, 56, 49);
+        Pokemon yourChoice=yourPokemon[0];
+        Pokemon enemyChoice=enemyPokemon[0] ;
+        Assert.assertEquals("Wrong HP!",19,yourAttacks.youAttackingPcWithLowAbility(yourChoice,enemyChoice));
     }
 
     @Test
     public void testYouAttackingPcWithMediumAbility(){
         YourAttacks yourAttacks=new YourAttacks();
-        this.yourChoice=new Pokemon[1];
-        this.enemyChoice=new Pokemon[1];
-        yourChoice[0]=new Pokemon("Pikachu", "Electric", "Medium", 35, 55, 40);
-        enemyChoice[0]=new Pokemon("Bulbasaur", "Grass", "Medium", 45, 56, 49);
-        ArrayList<Pokemon> yourChoice1=new ArrayList<>(Arrays.asList(yourChoice)) ;
-        ArrayList<Pokemon> enemyChoice1=new ArrayList<>(Arrays.asList(enemyChoice)) ;
-        Assert.assertEquals("Wrong HP!",14,yourAttacks.youAttackingPcWithMediumAbility(yourChoice1,enemyChoice1));
+        this.yourPokemon=new Pokemon[1];
+        this.enemyPokemon=new Pokemon[1];
+        yourPokemon[0]=new Pokemon("Pikachu", "Electric", "Medium", 35, 55, 40);
+        enemyPokemon[0]=new Pokemon("Bulbasaur", "Grass", "Medium", 45, 56, 49);
+        Pokemon yourChoice=yourPokemon[0];
+        Pokemon enemyChoice=enemyPokemon[0] ;;
+        Assert.assertEquals("Wrong HP!",14,yourAttacks.youAttackingPcWithMediumAbility(yourChoice,enemyChoice));
     }
     @Test
     public void testYouAttackingPcWithHighAbility(){
         YourAttacks yourAttacks=new YourAttacks();
-        this.yourChoice=new Pokemon[1];
-        this.enemyChoice=new Pokemon[1];
-        yourChoice[0]=new Pokemon("Pikachu", "Electric", "Medium", 35, 55, 40);
-        enemyChoice[0]=new Pokemon("Bulbasaur", "Grass", "Medium", 45, 56, 49);
-        ArrayList<Pokemon> yourChoice1=new ArrayList<>(Arrays.asList(yourChoice)) ;
-        ArrayList<Pokemon> enemyChoice1=new ArrayList<>(Arrays.asList(enemyChoice)) ;
-        Assert.assertEquals("Wrong HP!",9,yourAttacks.youAttackingPcWithHighAbility(yourChoice1,enemyChoice1));
+        this.yourPokemon=new Pokemon[1];
+        this.enemyPokemon=new Pokemon[1];
+        yourPokemon[0]=new Pokemon("Pikachu", "Electric", "Medium", 35, 55, 40);
+        enemyPokemon[0]=new Pokemon("Bulbasaur", "Grass", "Medium", 45, 56, 49);
+        Pokemon yourChoice=yourPokemon[0];
+        Pokemon enemyChoice=enemyPokemon[0] ;
+        Assert.assertEquals("Wrong HP!",9,yourAttacks.youAttackingPcWithHighAbility(yourChoice,enemyChoice));
     }
 
     @Test
     public void testYouUseShied(){
         YourAttacks yourAttacks=new YourAttacks();
-        this.yourChoice=new Pokemon[1];
-        yourChoice[0]=new Pokemon("Pikachu", "Electric", "Medium", 35, 55, 40);
-        ArrayList<Pokemon> yourChoice1=new ArrayList<>(Arrays.asList(yourChoice)) ;
-        Assert.assertEquals("Wrong DP!",45,yourAttacks.youUseShield(yourChoice1));
+        this.yourPokemon=new Pokemon[1];
+        yourPokemon[0]=new Pokemon("Pikachu", "Electric", "Medium", 35, 55, 40);
+        Pokemon yourChoice=yourPokemon[0];
+        Assert.assertEquals("Wrong DP!",45,yourAttacks.youUseShield(yourChoice));
 
 
     }

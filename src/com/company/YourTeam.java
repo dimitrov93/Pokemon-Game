@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class YourTeam extends MyPokemon implements YourPokemons {
     private String trainerName;
-    public ArrayList<Pokemon> yourChoose = new ArrayList<>();//това от Pokemon го преместих тук
-    public ArrayList<Pokemon> myPokemon = new ArrayList<>();//това от MyPokemon го преместих тук
+    public ArrayList<Pokemon> myPokemon = new ArrayList<>();
     public ArrayList<Pokemon> removedPokemon = new ArrayList<>();
+    public Pokemon yourChoose;
 
     Scanner scanner=new Scanner(System.in);
 
@@ -33,7 +33,7 @@ public class YourTeam extends MyPokemon implements YourPokemons {
         return myPokemon;
     }
 
-    public ArrayList<Pokemon> restorePokemon(YourTeam yourTeam) {
+    public Pokemon restorePokemon() {
         for (int i = 0; i < removedPokemon.size(); i++) {
             System.out.println((i + 1) + ":" + removedPokemon.get(i).getName());
         }
@@ -41,16 +41,16 @@ public class YourTeam extends MyPokemon implements YourPokemons {
 
         switch (choice) {
             case 1:
-                yourTeam.myPokemon.add(removedPokemon.get(0));
+                myPokemon.add(removedPokemon.get(0));
                 break;
             case 2:
-                yourTeam.myPokemon.add(removedPokemon.get(1));
+                myPokemon.add(removedPokemon.get(1));
                 break;
             case 3:
-                yourTeam.myPokemon.add(removedPokemon.get(2));
+                myPokemon.add(removedPokemon.get(2));
                 break;
         }
-        return this.yourChoose;
+        return yourChoose;
 
     }
 
@@ -63,41 +63,41 @@ public class YourTeam extends MyPokemon implements YourPokemons {
     }
 
     @Override
-    public ArrayList<Pokemon> youChooseOnePokemon() {
+    public Pokemon youChooseOnePokemon() {
         for (int i = 0; i < myPokemon.size(); i++) {
             System.out.println((i + 1) + ":" + myPokemon.get(i).getName());
         }
         int choice = scanner.nextInt();
 
         switch (choice) {
-            case 1:
-                yourChoose.add(0, myPokemon.get(0));
-                System.out.println("Your Pokemon is: " + yourChoose.get(0).getName());
-                break;
-            case 2:
-                yourChoose.add(0, myPokemon.get(1));
-                System.out.println("Your Pokemon is: " + yourChoose.get(0).getName());
-                break;
-            case 3:
-                yourChoose.add(0, myPokemon.get(2));
-                System.out.println("Your Pokemon is: " + yourChoose.get(0).getName());
-                break;
+            case 1 -> {
+                this.yourChoose=myPokemon.get(0);
+                System.out.println("Your Pokemon is: " +this.yourChoose.getName());
+            }
+            case 2 -> {
+                this.yourChoose=myPokemon.get(1);
+                System.out.println("Your Pokemon is: " +this.yourChoose.getName());
+            }
+            case 3 -> {
+                this.yourChoose=myPokemon.get(2);
+                System.out.println("Your Pokemon is: " +this.yourChoose.getName());
+            }
         }
-        return yourChoose;
+        return this.yourChoose;
     }
 
-    public void choiceNewPokemonForBattle(YourAttacks yourAttacks, ArrayList<Pokemon> enemyChoose) {
-        yourChoose.remove(0);
-        yourChoose = youChooseOnePokemon();
+    public void choiceNewPokemonForBattle(YourAttacks yourAttacks, Pokemon enemyChoose) {
+        this.yourChoose=null;
+        this.yourChoose=youChooseOnePokemon();
         System.out.println("Choice attack!");
         yourAttacks.AbilityChoice(yourChoose, enemyChoose);
     }
 
-    public void yourPokemonDied(YourTeam yourTeam, int healthBar) {
-        System.out.println(yourTeam.yourChoose.get(0).getName() + " is dead");
-        yourChoose.get(0).setHealthPoints(healthBar);
-        yourTeam.removedPokemon.add(yourChoose.get(0));
-        yourTeam.myPokemon.remove(yourChoose.get(0));
-        yourChoose.remove(0);
+
+    public void yourPokemonDied( int healthBar) {
+        System.out.println(this.yourChoose.getName() + " is dead");
+        this.yourChoose.setHealthPoints(healthBar);
+        removedPokemon.add(this.yourChoose);
+        myPokemon.remove(this.yourChoose);
     }
 }

@@ -27,7 +27,7 @@ public abstract class PokemonPoints {
         for (int i = 0; i < pokemon.length; i++) {
             if (pokemon[i].getSize().equals("Small")) {
                 pokemon[i].setHealthPoints((int) (pokemon[i].getHealthPoints() - (pokemon[i].getHealthPoints() * 0.2)));
-               healthPoints[i]=pokemon[i].getHealthPoints();
+                healthPoints[i]=pokemon[i].getHealthPoints();
             } else if (pokemon[i].getSize().equals("Big")) {
                 pokemon[i].setHealthPoints((int) (pokemon[i].getHealthPoints() + (pokemon[i].getHealthPoints() * 0.2)));
                 healthPoints[i]=pokemon[i].getHealthPoints();
@@ -40,13 +40,14 @@ public abstract class PokemonPoints {
         int defence[]=new int[pokemon.length];
         for (int i = 0; i < pokemon.length; i++) {
             if (pokemon[i].getSize().equals("Small")) {
-                pokemon[i].setDefense((int) (pokemon[i].getDefense() - (pokemon[i].getDefense() * 0.2)));
-                defence[i]=pokemon[i].getDefense();
+                pokemon[i].setDefensePoints((int) (pokemon[i].getDefensePoints() - (pokemon[i].getDefensePoints() * 0.2)));
+                defence[i]=pokemon[i].getDefensePoints();
             } else if (pokemon[i].getSize().equals("Big")) {
-                pokemon[i].setDefense( (int) (pokemon[i].getDefense() + (pokemon[i].getDefense() * 0.2)));
-                defence[i]=pokemon[i].getDefense();
+                pokemon[i].setDefensePoints( (int) (pokemon[i].getDefensePoints() + (pokemon[i].getDefensePoints() * 0.2)));
+                defence[i]=pokemon[i].getDefensePoints();
             }
         }
         return defence;
     }
 }
+

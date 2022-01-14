@@ -2,8 +2,7 @@ package com.company;
 
 public class MyPokemon extends PokemonPoints {
     protected Pokemon[] pokemon;
-    //public PokemonPoints pokemonPoints;  тука ппц мисля, че трябва да е композиция,а не наследяване
-                                         //ама с комозиция се бъгва и не работи.
+
     public MyPokemon() {
         this.pokemon = new Pokemon[5];
         pokemon[0] = new Pokemon("Pikachu", "Electric", "Medium", 35, 55, 40);

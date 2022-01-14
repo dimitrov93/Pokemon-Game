@@ -1,3 +1,4 @@
+
 package com.company;
 
 public class Pokemon {
@@ -6,7 +7,7 @@ public class Pokemon {
     private String size;
     private int healthPoints;
     private int attackPower;
-    private int defense;
+    private int defensePoints;
 
     public String getName() {
         return name;
@@ -48,21 +49,21 @@ public class Pokemon {
         this.attackPower=attackPower;
     }
 
-    public int getDefense() {
-        return defense;
+    public int getDefensePoints() {
+        return defensePoints;
     }
 
-    public void setDefense(int defense) {
-        this.defense = defense;
+    public void setDefensePoints(int defensePoints) {
+        this.defensePoints = defensePoints;
     }
 
-    public Pokemon(String name, String type, String size, int healthPoints, int attackPower, int defense) {
+    public Pokemon(String name, String type, String size, int healthPoints, int attackPower, int defensePoints) {
         setName(name);
         setType(type);
         setSize(size);
         setHealthPoints(healthPoints);
         setAttackPower(attackPower);
-        setDefense(defense);
+        setDefensePoints(defensePoints);
     }
 
     public Pokemon() {
@@ -74,10 +75,7 @@ public class Pokemon {
         StringBuilder result = new StringBuilder();
         result.append("name:" + getName() + "; type:" + getType() + "; size:" + getSize() +
                 "; healthPoints:" +getHealthPoints() + "; attackPower:" + getAttackPower() +
-                "; defense:" + getDefense());
+                "; defense:" + getDefensePoints());
         return result.toString();
     }
-
-
-
 }

@@ -101,11 +101,11 @@ public class MyPokemonTest {
             if (pokemon[i].getSize().equals("Small")) {
                 pokemon[i].setHealthPoints((int) (pokemon[i].getHealthPoints() - (pokemon[i].getHealthPoints() * 0.2)));
                 pokemon[i].setAttackPower((int) (pokemon[i].getAttackPower() - (pokemon[i].getAttackPower() * 0.2)));
-                pokemon[i].setDefense((int) (pokemon[i].getDefense() - (pokemon[i].getDefense() * 0.2)));
+                pokemon[i].setDefensePoints((int) (pokemon[i].getDefensePoints() - (pokemon[i].getDefensePoints() * 0.2)));
             } else if (pokemon[i].getSize().equals("Big")) {
                 pokemon[i].setHealthPoints((int) (pokemon[i].getHealthPoints() + (pokemon[i].getHealthPoints() * 0.2)));
                 pokemon[i].setAttackPower((int) (pokemon[i].getAttackPower() + (pokemon[i].getAttackPower() * 0.2)));
-                pokemon[i].setDefense( (int) (pokemon[i].getDefense() + (pokemon[i].getDefense() * 0.2)));
+                pokemon[i].setDefensePoints( (int) (pokemon[i].getDefensePoints() + (pokemon[i].getDefensePoints() * 0.2)));
             }
         }
     }

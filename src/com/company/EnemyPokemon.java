@@ -2,7 +2,7 @@ package com.company;
 
 public class EnemyPokemon extends PokemonPoints{
     protected Pokemon[] pokemon;
-    //public PokemonPoints pokemonPoints;
+
     public EnemyPokemon() {
         this.pokemon = new Pokemon[5];
         pokemon[0] = new Pokemon("Bulbasaur", "Grass", "Medium", 45, 56, 49);
